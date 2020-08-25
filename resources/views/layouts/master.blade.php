@@ -21,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Tahfidz Dashboard</title>
+  <title>Tahfidz {{ucfirst($user->level)}} Dashboard</title>
   <!-- Favicon -->
   <link rel="icon" href="{{asset('argon/assets/img/brand/favicon.png')}}" type="image/png">
   <!-- Fonts -->
@@ -55,7 +55,7 @@
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="examples/icons.html">
                 <i class="ni ni-planet text-orange"></i>
                 <span class="nav-link-text">Icons</span>
@@ -84,19 +84,27 @@
                 <i class="ni ni-key-25 text-info"></i>
                 <span class="nav-link-text">Login</span>
               </a>
-            </li>
+            </li> -->
+            @if($user->level == 'admin')
             <li class="nav-item">
+              <a class="nav-link" href="/register/user">
+                <i class="ni ni-circle-08 text-pink"></i>
+                <span class="nav-link-text">Register User</span>
+              </a>
+            </li>
+            @endif
+            <!-- <li class="nav-item">
               <a class="nav-link" href="examples/register.html">
                 <i class="ni ni-circle-08 text-pink"></i>
                 <span class="nav-link-text">Register</span>
               </a>
-            </li>
-            <li class="nav-item">
+            </li> -->
+            <!-- <li class="nav-item">
               <a class="nav-link" href="examples/upgrade.html">
                 <i class="ni ni-send text-dark"></i>
                 <span class="nav-link-text">Upgrade</span>
               </a>
-            </li>
+            </li> -->
           </ul>
           <!-- Divider -->
           <hr class="my-3">
@@ -107,12 +115,12 @@
           <!-- Navigation -->
           <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
-              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
-                <i class="ni ni-spaceship"></i>
-                <span class="nav-link-text">Getting started</span>
+              <a class="nav-link" href="/logout">
+                <i class="ni ni-user-run"></i>
+                <span class="nav-link-text">Logout</span>
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html" target="_blank">
                 <i class="ni ni-palette"></i>
                 <span class="nav-link-text">Foundation</span>
@@ -135,7 +143,7 @@
                 <i class="ni ni-send text-dark"></i>
                 <span class="nav-link-text">Upgrade to PRO</span>
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -198,7 +206,7 @@
                       <div class="col ml--2">
                         <div class="d-flex justify-content-between align-items-center">
                           <div>
-                            <h4 class="mb-0 text-sm">John Snow</h4>
+                            <h4 class="mb-0 text-sm">{{$user->name}}</h4>
                           </div>
                           <div class="text-right text-muted">
                             <small>2 hrs ago</small>
@@ -217,7 +225,7 @@
                       <div class="col ml--2">
                         <div class="d-flex justify-content-between align-items-center">
                           <div>
-                            <h4 class="mb-0 text-sm">John Snow</h4>
+                            <h4 class="mb-0 text-sm">{{$user->name}}</h4>
                           </div>
                           <div class="text-right text-muted">
                             <small>3 hrs ago</small>
@@ -236,7 +244,7 @@
                       <div class="col ml--2">
                         <div class="d-flex justify-content-between align-items-center">
                           <div>
-                            <h4 class="mb-0 text-sm">John Snow</h4>
+                            <h4 class="mb-0 text-sm">{{$user->name}}</h4>
                           </div>
                           <div class="text-right text-muted">
                             <small>5 hrs ago</small>
@@ -255,7 +263,7 @@
                       <div class="col ml--2">
                         <div class="d-flex justify-content-between align-items-center">
                           <div>
-                            <h4 class="mb-0 text-sm">John Snow</h4>
+                            <h4 class="mb-0 text-sm">{{$user->name}}</h4>
                           </div>
                           <div class="text-right text-muted">
                             <small>2 hrs ago</small>
@@ -274,7 +282,7 @@
                       <div class="col ml--2">
                         <div class="d-flex justify-content-between align-items-center">
                           <div>
-                            <h4 class="mb-0 text-sm">John Snow</h4>
+                            <h4 class="mb-0 text-sm">{{$user->name}}</h4>
                           </div>
                           <div class="text-right text-muted">
                             <small>3 hrs ago</small>
@@ -343,7 +351,7 @@
                     <img alt="Image placeholder" src="{{ asset('argon/assets/img/theme/team-4.jpg') }}">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
-                    <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                    <span class="mb-0 text-sm  font-weight-bold">{{$user->name}}</span>
                   </div>
                 </div>
               </a>
@@ -368,7 +376,7 @@
                   <span>Support</span>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#!" class="dropdown-item">
+                <a href="/logout" class="dropdown-item">
                   <i class="ni ni-user-run"></i>
                   <span>Logout</span>
                 </a>
