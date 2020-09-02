@@ -484,7 +484,7 @@
                   <tr>
                     <td><?php echo e($s->nama); ?></td>
                     <td><?php echo e($s->kelas); ?></td>
-                    <td><?php echo e($s->hafalan); ?></td>
+                    <td><?php echo e($s->jk); ?></td>
                   </tr>
                 </tbody>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

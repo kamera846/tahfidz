@@ -97,9 +97,6 @@ class ManageSantriController extends Controller
     	$data = Santri::all();
     	Santri::find($id)->delete();
 
-        return view('admin.component.table_santri', [
-            'user' => $user,
-            'santri' => $data 
-        ]);
+        return redirect('/manage/santri');
     }
 }

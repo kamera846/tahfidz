@@ -484,7 +484,7 @@
                   <tr>
                     <td>{{ $s->nama }}</td>
                     <td>{{ $s->kelas }}</td>
-                    <td>{{ $s->hafalan }}</td>
+                    <td>{{ $s->jk }}</td>
                   </tr>
                 </tbody>
                 @endforeach
