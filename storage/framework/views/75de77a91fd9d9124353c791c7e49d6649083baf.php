@@ -53,7 +53,7 @@
                 <div class="form-group mb-1">
                   <div class="input-group input-group-merge input-group-alternative">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-quran"></i></span>
+                      <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
                     </div>
                     <input placeholder="Jenis Kelamin" id="jk" type="text" class="form-control" name="jk" value="<?php echo e($data->jk); ?>" required>
                   </div>

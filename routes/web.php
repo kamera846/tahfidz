@@ -12,13 +12,15 @@
 */
 
 Route::group(['middleware' => 'auth'], function () {
+    // User
     Route::get('/', 'HomeController@index');
     Route::get('/search', 'HomeController@search');
-
+    
     // Admin
     Route::get('register/user', 'Auth\RegisterUserController@index');
     Route::post('register/user', 'Auth\RegisterUserController@registerUser');
 
+    // Manage Santri
     Route::get('/manage/santri', 'Auth\ManageSantriController@index');
 
     Route::get('/manage/santri/search', 'Auth\ManageSantriController@search');
@@ -32,6 +34,22 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/manage/santri/update/{id}', 'Auth\ManageSantriController@update');
 
     Route::get('/manage/santri/delete/{id}', 'Auth\ManageSantriController@delete');
+
+    // Manage Wali Santri
+    Route::get('/manage/wali', 'Auth\ManageWali@index');
+
+    Route::get('/manage/wali/search', 'Auth\ManageWali@search');
+
+    Route::get('/manage/wali/new_data', 'Auth\ManageWali@new_data');
+
+    Route::post('/manage/wali/create', 'Auth\ManageWali@create');
+
+    Route::get('/manage/wali/edit/{id}', 'Auth\ManageWali@edit');
+
+    Route::put('/manage/wali/update/{id}', 'Auth\ManageWali@update');
+
+    Route::get('/manage/wali/delete/{id}', 'Auth\ManageWali@delete');
+    
 });
 
 Route::get('add-user', function () {

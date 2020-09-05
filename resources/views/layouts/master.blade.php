@@ -39,9 +39,9 @@
   <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
     <div class="scrollbar-inner">
       <!-- Brand -->
-      <div class="sidenav-header  align-items-center">
-        <a class="navbar-brand" href="javascript:void(0)">
-          <img src="{{ asset('argon/assets/img/brand/blue.png') }}" class="navbar-brand-img" alt="...">
+      <div class="sidenav-header align-items-center mt-4">
+        <a href="/">
+          <img src="{{ asset('argon/assets/img/brand/logo.png') }}" height="80" alt="...">
         </a>
       </div>
       <div class="navbar-inner">
@@ -49,13 +49,13 @@
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
           <!-- Nav items -->
           <ul class="navbar-nav">
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link active" href="/">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
-            <!-- <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link" href="examples/icons.html">
                 <i class="ni ni-planet text-orange"></i>
                 <span class="nav-link-text">Icons</span>
@@ -104,8 +104,8 @@
                 <i class="ni ni-circle-08 text-pink"></i>
                 <span class="nav-link-text">Register</span>
               </a>
-            </li> -->
-            <!-- <li class="nav-item">
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="examples/upgrade.html">
                 <i class="ni ni-send text-dark"></i>
                 <span class="nav-link-text">Upgrade</span>
@@ -354,7 +354,7 @@
               <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="{{ asset('argon/assets/img/theme/team-4.jpg') }}">
+                    <img alt="Image placeholder" src="{{ asset('argon/assets/img/brand/user_logo.png') }}">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
                     <span class="mb-0 text-sm  font-weight-bold">{{$user->name}}</span>
@@ -394,12 +394,122 @@
     </nav>
     <!-- Header -->
     <!-- Header -->
-    <div class="header bg-primary pb-8">
-      
+    <div class="header bg-primary pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Default</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="col-lg-6 col-5 text-right">
+              <a href="#" class="btn btn-sm btn-neutral">New</a>
+              <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+            </div>
+          </div>
+          <!-- Card stats -->
+          <div class="row">
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Total traffic</h5>
+                      <span class="h2 font-weight-bold mb-0">350,897</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                        <i class="ni ni-active-40"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-nowrap">Since last month</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
+                      <span class="h2 font-weight-bold mb-0">2,356</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                        <i class="ni ni-chart-pie-35"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-nowrap">Since last month</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
+                      <span class="h2 font-weight-bold mb-0">924</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                        <i class="ni ni-money-coins"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-nowrap">Since last month</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
+                      <span class="h2 font-weight-bold mb-0">49,65%</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                        <i class="ni ni-chart-bar-32"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-sm">
+                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-nowrap">Since last month</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Page content -->
     <div class="container-fluid mt--6">
-      <!-- <div class="row">
+      <div class="row">
         <div class="col-xl-8">
           <div class="card bg-default">
             <div class="card-header bg-transparent">
@@ -427,9 +537,9 @@
               </div>
             </div>
             <div class="card-body">
-              Chart
+              <!-- Chart -->
               <div class="chart">
-                Chart wrapper
+                <!-- Chart wrapper -->
                 <canvas id="chart-sales-dark" class="chart-canvas"></canvas>
               </div>
             </div>
@@ -446,14 +556,232 @@
               </div>
             </div>
             <div class="card-body">
-              Chart
+              <!-- Chart -->
               <div class="chart">
                 <canvas id="chart-bars" class="chart-canvas"></canvas>
               </div>
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
+      <div class="row">
+        <div class="col-xl-8">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">Page visits</h3>
+                </div>
+                <div class="col text-right">
+                  <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <!-- Projects table -->
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Page name</th>
+                    <th scope="col">Visitors</th>
+                    <th scope="col">Unique users</th>
+                    <th scope="col">Bounce rate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      /argon/
+                    </th>
+                    <td>
+                      4,569
+                    </td>
+                    <td>
+                      340
+                    </td>
+                    <td>
+                      <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      /argon/index.html
+                    </th>
+                    <td>
+                      3,985
+                    </td>
+                    <td>
+                      319
+                    </td>
+                    <td>
+                      <i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      /argon/charts.html
+                    </th>
+                    <td>
+                      3,513
+                    </td>
+                    <td>
+                      294
+                    </td>
+                    <td>
+                      <i class="fas fa-arrow-down text-warning mr-3"></i> 36,49%
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      /argon/tables.html
+                    </th>
+                    <td>
+                      2,050
+                    </td>
+                    <td>
+                      147
+                    </td>
+                    <td>
+                      <i class="fas fa-arrow-up text-success mr-3"></i> 50,87%
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      /argon/profile.html
+                    </th>
+                    <td>
+                      1,795
+                    </td>
+                    <td>
+                      190
+                    </td>
+                    <td>
+                      <i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h3 class="mb-0">Social traffic</h3>
+                </div>
+                <div class="col text-right">
+                  <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <!-- Projects table -->
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Referral</th>
+                    <th scope="col">Visitors</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      Facebook
+                    </th>
+                    <td>
+                      1,480
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <span class="mr-2">60%</span>
+                        <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      Facebook
+                    </th>
+                    <td>
+                      5,480
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <span class="mr-2">70%</span>
+                        <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      Google
+                    </th>
+                    <td>
+                      4,807
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <span class="mr-2">80%</span>
+                        <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      Instagram
+                    </th>
+                    <td>
+                      3,678
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <span class="mr-2">75%</span>
+                        <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      twitter
+                    </th>
+                    <td>
+                      2,645
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <span class="mr-2">30%</span>
+                        <div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       @if($user->level == 'user')
       <div class="row justify-content-md-center">
         <div class="col-xl-10">
@@ -476,7 +804,7 @@
                   <tr>
                     <th scope="col">Nama Santri</th>
                     <th scope="col">Kelas</th>
-                    <th scope="col">Hafalan</th>
+                    <th scope="col">Jenis Kelamin</th>
                   </tr>
                 </thead>
                 @foreach($santri as $s)

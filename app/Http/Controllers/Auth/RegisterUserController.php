@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+Use App\Wali;
+Use App\User;
 
 class RegisterUserController extends Controller
 {
@@ -18,11 +20,11 @@ class RegisterUserController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:user',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        $insert = \DB::table('users')->insert([
+        $insert = User::insert([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password_confirmation),
@@ -30,6 +32,12 @@ class RegisterUserController extends Controller
             'updated_at' => date('Y-m-d H:i:s'),
             'level' => 'user'
         ]);
+
+        // Wali::create([
+        //     'user_id' => $request->
+        //     'nama' => $request->name,
+        //     'no'
+        // ])
 
         if ($insert) {
             return view('auth.register_user', [
