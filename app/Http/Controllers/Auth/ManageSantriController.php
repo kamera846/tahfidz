@@ -7,13 +7,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Santri;
+use App\Wali;
 
 class ManageSantriController extends Controller
 {
     public function index()
     {
     	$user = Auth::user();
-    	$santri = Santri::all();
+        $santri = Santri::all();
 
         return view('admin.manage_santri.table_santri', [
             'user' => $user,
@@ -34,51 +35,57 @@ class ManageSantriController extends Controller
 
         return view('admin.manage_santri.table_santri', [
             'user' => $user,
-            'santri' => $santri 
+            'santri' => $santri,
+            'nama' => $nama 
         ]);
     }
 
     public function new_data()
     {
         $user = Auth::user();
+        $wali = Wali::all();
+
         return view('admin.manage_santri.form', [
-            'user' => $user
+            'user' => $user,
+            'wali' => $wali
+        ]);
+    }
+
+    public function search_nama_wali(Request $request)
+    {
+        $this->validate($request, [
+            'nama' => 'required|string|max:255'
+        ]);
+
+        $nama = $request->nama;
+        $santri = Santri::where('nama', 'like', "%".$nama."%")->paginate(2);
+
+        return view('admin.manage_santri.form', [
+            'santri' => $santri 
         ]);
     }
 
     public function create(Request $request)
     {
     	$this->validate($request, [
-            // 'id_wali' => 'required',
+            'nama_wali' => 'required',
 	    	'nama' => 'required|string|max:255',
 	        'kelas' => 'required|string|max:255',
 	        'jk' => 'required|string|max:255'
         ]);
 
-        // $nama = $request->nama_wali;
-        // $data_wali = Wali::where("nama","like","%".$nama."%")->get();
+        $nama = $request->nama_wali;
+        $id = Wali::where("nama", $nama)->first()->id;
 
         $santri = new Santri();
-        // $santri->id_wali = $request->id_wali;
+        $santri->wali_id = $id;
         $santri->nama = $request->nama;
         $santri->kelas = $request->kelas;
         $santri->jk = $request->jk;
         $santri->created_at = date('Y-m-d H:i:s');
-        $santri->updated_at = date('Y-m-d H:i:s');
         $santri->save();
 
     	return redirect('/manage/santri');
-    }
-
-    public function get_data_wali(Request $request)
-    {
-        $this->validate($request, [
-	    	'nama' => 'required|string|min:3'
-        ]);
-
-        $data = Wali::where("nama","like","%".$nama."%")->get();
-
-        return response([ 'data_wali' => $data ]);
     }
 
     public function edit($id)

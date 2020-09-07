@@ -6,7 +6,7 @@
               <div class="row align-items-center">
                 <div class="col">
                   <div class="row">
-                    <h2 class="mb-0">List Santri</h2>
+                    <a href="/manage/santri"><h2 class="mb-0">List Santri</h2></a>
                     <a href="/manage/santri/new_data" class="btn btn-sm btn-primary ml-3">New
                     </a>
                   </div>
@@ -26,7 +26,7 @@
                     <th scope="col">Nama Santri</th>
                     <th scope="col">Kelas</th>
                     <th scope="col">Jenis Kelamin</th>
-                    <th scope="col">SPP</th>
+                    <th scope="col">Nama Wali</th>
                     <th scope="col">Opsi</th>
                   </tr>
                 </thead>
@@ -36,6 +36,7 @@
                     <td><?php echo e($s->nama); ?></td>
                     <td><?php echo e($s->kelas); ?></td>
                     <td><?php echo e($s->jk); ?></td>
+                    <td><?php echo e($s->wali->nama); ?></td>
                     <td>
                       <a href="/manage/santri/delete/<?php echo e($s->id); ?>"><i class="fas fa-trash text-danger mr-3"></i></a>
                       <a href="/manage/santri/edit/<?php echo e($s->id); ?>"><i class="ni ni-curved-next text-primary"></i></a>

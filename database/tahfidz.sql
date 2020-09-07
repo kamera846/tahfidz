@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Sep 2020 pada 08.01
+-- Waktu pembuatan: 07 Sep 2020 pada 09.53
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.7
 
@@ -42,7 +42,20 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2020_08_29_103055_create_santri_table', 2),
 (7, '2020_08_31_064847_create_murojaah_table', 3),
-(8, '2020_09_01_075941_create_santri_table', 4);
+(8, '2020_09_01_075941_create_santri_table', 4),
+(9, '2020_09_02_055244_create_wali_table', 5),
+(10, '2020_09_03_033904_add_new_column_to_santri_table', 6),
+(11, '2020_09_03_034215_new_column_santri_table', 7),
+(12, '2020_09_03_034913_create_wali_table', 8),
+(13, '2020_09_04_234829_ubah_nama_table_user', 9),
+(14, '2020_09_05_010908_create_wali_table', 10),
+(16, '2020_09_05_011818_column_foreign_table', 11),
+(17, '2020_09_05_050644_create_spp_table', 11),
+(18, '2020_09_05_053115_delete_column_foreign_table', 12),
+(19, '2020_09_07_060308_foreign_wali_table', 13),
+(20, '2020_09_07_061510_create_table', 13),
+(21, '2020_09_07_061705_foreign_table', 14),
+(22, '2020_09_07_062125_foreign_santri_table', 15);
 
 -- --------------------------------------------------------
 
@@ -63,7 +76,8 @@ CREATE TABLE `password_resets` (
 --
 
 CREATE TABLE `santri` (
-  `id_santri` int(10) UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
+  `wali_id` int(10) UNSIGNED NOT NULL,
   `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `kelas` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jk` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -75,32 +89,46 @@ CREATE TABLE `santri` (
 -- Dumping data untuk tabel `santri`
 --
 
-INSERT INTO `santri` (`id_santri`, `nama`, `kelas`, `jk`, `created_at`, `updated_at`) VALUES
-(4, 'Violet Nasyiah M.Farm', '6', 'Laki-laki', NULL, '2020-09-01 19:15:36'),
-(5, 'Hartana Salahudin S.H.', '2', 'Laki-laki', NULL, NULL),
-(6, 'Fathonah Prastuti', '3', 'Laki-laki', NULL, NULL),
-(7, 'Usyi Dewi Wastuti S.E.I', '4', 'Laki-laki', NULL, NULL),
-(8, 'Chelsea Astuti', '4', 'Laki-laki', NULL, NULL),
-(9, 'Harto Among Suryono', '3', 'Perempuan', NULL, NULL),
-(10, 'Kenzie Dabukke', '2', 'Laki-laki', NULL, NULL),
-(11, 'Karna Tampubolon', '3', 'Perempuan', NULL, NULL),
-(12, 'Tomi Budiman S.Farm', '3', 'Perempuan', NULL, NULL),
-(13, 'Iriana Humaira Lailasari S.Gz', '4', 'Perempuan', NULL, NULL),
-(14, 'Humaira Yuniar M.Kom.', '3', 'Laki-laki', NULL, NULL),
-(15, 'Dariati Sihotang', '5', 'Laki-laki', NULL, NULL),
-(16, 'Heru Prasetya', '2', 'Perempuan', NULL, NULL),
-(17, 'Vicky Salsabila Mandasari', '1', 'Perempuan', NULL, NULL),
-(18, 'Melinda Mulyani', '2', 'Perempuan', NULL, NULL),
-(19, 'Marsudi Irawan', '3', 'Perempuan', NULL, NULL),
-(22, 'Ananda Raysha Pradana', 'XI-PH-3', 'Laki-laki', '2020-09-01 19:10:41', '2020-09-01 19:25:40');
+INSERT INTO `santri` (`id`, `wali_id`, `nama`, `kelas`, `jk`, `created_at`, `updated_at`) VALUES
+(46, 3, 'Eka Ady Prayoga', 'XII-RPL-A', 'Laki-laki', '2020-09-07 00:31:00', '2020-09-07 00:31:00');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Struktur dari tabel `spp`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `spp` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `santri_id` int(11) NOT NULL,
+  `nominal` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `spp`
+--
+
+INSERT INTO `spp` (`id`, `santri_id`, `nominal`, `created_at`, `updated_at`) VALUES
+(1, 1, '744885', NULL, NULL),
+(2, 2, '10959454', NULL, NULL),
+(3, 3, '8591159', NULL, NULL),
+(4, 4, '751', NULL, NULL),
+(5, 5, '26891112', NULL, NULL),
+(6, 6, '5', NULL, NULL),
+(7, 7, '5076589', NULL, NULL),
+(8, 8, '44', NULL, NULL),
+(9, 9, '744975620', NULL, NULL),
+(10, 10, '86453625', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
+--
+
+CREATE TABLE `user` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -112,13 +140,38 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `level`) VALUES
-(1, 'Admin', 'admin@gmail.com', '$2y$10$23kBBWI6UsKer2FvjFBMROT4ZUKt4.4W.dCd6AJghJ5AZvcjdv5IK', 'dlGa2J4YEXWKHI0YMIYqdU6jO54AxTOBxLA1e5OCPRcN95QXgCCpge0O76Pt', '2020-08-25 01:55:45', '2020-08-25 01:55:45', 'admin'),
-(2, 'User', 'user@gmail.com', '$2y$10$YXQHqHyv.F1mJWHYVJFz1ecwafmoZnmYjLyVJBRuLJvqmm5ZSl/ki', 'LvdgAQQwZx47OJ36fZN0Zqbg24heA8AEsyelSN2VUv7OuooSkuUtn2EE2W3c', '2020-08-25 01:56:02', '2020-08-25 01:56:02', 'user'),
-(6, 'Dwi Andika', 'andikadwi@gmail.com', '$2y$10$t/rkOKl36UOl4RjC5j/H3usMOw5HF3PU5g/1h2Fqmi8DYoJWaxvvW', NULL, '2020-08-29 13:38:06', '2020-08-29 13:38:06', 'user');
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `level`) VALUES
+(1, 'Admin', 'admin@gmail.com', '$2y$10$23kBBWI6UsKer2FvjFBMROT4ZUKt4.4W.dCd6AJghJ5AZvcjdv5IK', '0Rkq2IuwI12Gd7g7RegQ4pbXVxR1G2SLlxo6xUkKJ14shQSJFdGflgrmbGqR', '2020-08-25 01:55:45', '2020-08-25 01:55:45', 'admin'),
+(16, 'I Wayan Mertayasa', 'wayan@gmail.com', '$2y$10$QNRqU3LaFZQP8fTpTP4/deiQlTV/e.T3gkl09D020lTdAbVXqCFRm', NULL, '2020-09-06 23:49:55', '2020-09-06 23:49:55', 'user'),
+(17, 'Suwarlik', 'suwarlik@gmail.com', '$2y$10$RbQHMXx8UnVvufwYlYsBjOti8U/.JRkoYTUBLLhqmgu3M46bJAykG', NULL, '2020-09-06 23:50:38', '2020-09-06 23:50:38', 'user');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `wali`
+--
+
+CREATE TABLE `wali` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `no_telp` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jk` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `wali`
+--
+
+INSERT INTO `wali` (`id`, `user_id`, `nama`, `no_telp`, `alamat`, `jk`, `created_at`, `updated_at`) VALUES
+(2, 16, 'I Wayan Mertayasa', '089765431234', 'Jalan Jombang Gg.3A no.15', 'Laki-laki', '2020-09-06 23:49:55', '2020-09-06 23:49:55'),
+(3, 17, 'Suwarlik', '08974567312', 'Jalan Jombang Gg.3A', 'Perempuan', '2020-09-06 23:50:38', '2020-09-06 23:50:38');
 
 --
 -- Indexes for dumped tables
@@ -140,14 +193,28 @@ ALTER TABLE `password_resets`
 -- Indeks untuk tabel `santri`
 --
 ALTER TABLE `santri`
-  ADD PRIMARY KEY (`id_santri`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `santri_wali_id_foreign` (`wali_id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indeks untuk tabel `spp`
 --
-ALTER TABLE `users`
+ALTER TABLE `spp`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- Indeks untuk tabel `wali`
+--
+ALTER TABLE `wali`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `wali_user_id_foreign` (`user_id`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -157,19 +224,47 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT untuk tabel `santri`
 --
 ALTER TABLE `santri`
-  MODIFY `id_santri` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT untuk tabel `spp`
 --
-ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `spp`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT untuk tabel `wali`
+--
+ALTER TABLE `wali`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `santri`
+--
+ALTER TABLE `santri`
+  ADD CONSTRAINT `santri_wali_id_foreign` FOREIGN KEY (`wali_id`) REFERENCES `wali` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `wali`
+--
+ALTER TABLE `wali`
+  ADD CONSTRAINT `wali_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

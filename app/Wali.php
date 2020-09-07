@@ -14,4 +14,9 @@ class Wali extends Model
     {
     	return $this->belongsTo('App\User', 'user_id');
     }
+
+    public function santri()
+    {
+    	return $this->hasMany('App\Santri');
+    }
 }

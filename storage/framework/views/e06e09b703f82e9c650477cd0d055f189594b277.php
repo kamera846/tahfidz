@@ -13,7 +13,7 @@
               <form class="form-horizontal" action="/manage/santri/create" method="post">
                 <?php echo e(csrf_field()); ?>
 
-                <div class="form-group mb-1">
+                <div class="form-group mb-3">
                   <div class="input-group input-group-merge input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-single-02"></i></span>
@@ -22,7 +22,7 @@
                   </div>
                 </div>
 
-                <!-- <div class="form-group mb-1">
+                <!-- <div class="form-group mb-3">
                   <div class="input-group input-group-merge input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-users"></i></span>
@@ -40,7 +40,7 @@
                   </div>
                 </div> -->
 
-                <div class="form-group mb-1">
+                <div class="form-group mb-3">
                   <div class="input-group input-group-merge input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
@@ -48,12 +48,20 @@
                     <input placeholder="Kelas" id="kelas" type="text" class="form-control" name="kelas" value="<?php echo e(old('kelas')); ?>" required>
                   </div>
                 </div>
-                <div class="form-group mb-1">
+                <div class="form-group mb-3">
                   <div class="input-group input-group-merge input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
                     </div>
                     <input placeholder="Jenis Kelamin" id="jk" type="text" class="form-control" name="jk" value="<?php echo e(old('jk')); ?>" required>
+                  </div>
+                </div>
+                <div class="form-group mb-3">
+                  <div class="input-group input-group-merge input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-user-friends"></i></span>
+                    </div>
+                    <input placeholder="Nama Wali" id="nama_wali" type="text" class="form-control" name="nama_wali" value="<?php echo e(old('nama_wali')); ?>" required>
                   </div>
                 </div>
                 <div class="text-center">
