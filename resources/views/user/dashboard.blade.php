@@ -27,7 +27,7 @@
     @include('component.navbar')
     <!-- Header -->
     <!-- Header -->
-    <div class="header bg-success">
+    <div class="header bg-primary">
       <div class="container-fluid" style="height: 100px">
         <!-- <div class="header-body">
           <div class="row align-items-center py-4">

@@ -61,7 +61,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-user-friends"></i></span>
                     </div>
-                    <input placeholder="Nama Wali" id="nama_wali" type="text" class="form-control" name="nama_wali" value="<?php echo e(old('nama_wali')); ?>" required>
+                    <input placeholder="Nama Lengkap Wali" id="nama_wali" type="text" class="form-control" name="nama_wali" value="<?php echo e(old('nama_wali')); ?>" required>
                   </div>
                 </div>
                 <div class="text-center">

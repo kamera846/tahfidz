@@ -1,0 +1,55 @@
+body {
+    background-color: rgb(230, 230, 230);
+}
+
+/* left-side */
+.left-side {
+    position: relative;
+}
+
+.text-1 {
+    font-size: 33px;
+    font-weight: bold;
+    color: rgb(7, 51, 128);
+}
+
+.text-2 {
+    font-size: 25px;
+    font-weight: bold;
+    color: rgba(126, 126, 126, 0.611);
+}
+
+.illustration-1 {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    height: auto;
+    max-width: 70%;
+
+}
+
+@media (max-width: 800px) {
+    .illustration-1 {
+        position: relative;
+        left: 20px;
+        height: auto;
+        max-width: 70%;
+    }
+
+    .left-side {
+        text-align: center;
+    }
+}
+/* end of left-side */
+
+/* card */
+.card {
+    border: 2px solid rgb(230, 230, 230);
+}
+
+
+/* end of card */
+
+.footer{
+    background: transparent;
+}

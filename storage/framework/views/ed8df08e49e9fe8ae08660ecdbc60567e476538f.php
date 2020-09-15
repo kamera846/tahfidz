@@ -1,9 +1,9 @@
-<nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+  <nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
     <div class="scrollbar-inner">
       <!-- Brand -->
-      <div class="sidenav-header align-items-center mt-4">
+      <div class="sidenav-header align-items-center mt-2" style="margin-bottom: 5rem">
         <a href="/">
-          <img src="<?php echo e(asset('argon/assets/img/brand/logo.png')); ?>" height="80" alt="...">
+          <img src="<?php echo e(asset('argon/assets/img/brand/icon_final.png')); ?>" height="150" alt="...">
         </a>
       </div>
       <div class="navbar-inner">
@@ -34,9 +34,9 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="examples/profile.html">
+              <a class="nav-link" href="/manage/hafalan">
                 <i class="fas fa-quran text-green"></i>
-                <span class="nav-link-text">Murojaah</span>
+                <span class="nav-link-text">Hafalan</span>
               </a>
             </li>
 
@@ -61,12 +61,12 @@
               </a>
             </li> -->
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="/register/user">
                 <i class="ni ni-circle-08 text-pink"></i>
                 <span class="nav-link-text">Register User</span>
               </a>
-            </li>
+            </li> -->
             
             <!-- <li class="nav-item">
               <a class="nav-link" href="examples/register.html">
@@ -81,7 +81,7 @@
           <hr class="my-3">
           <!-- Heading -->
           <h6 class="navbar-heading p-0 text-muted">
-            <span class="docs-normal">Documentation</span>
+            <span class="docs-normal">Option</span>
           </h6>
           <!-- Navigation -->
           <ul class="navbar-nav mb-md-3">

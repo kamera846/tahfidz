@@ -27,7 +27,7 @@
     <?php echo $__env->make('component.navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <!-- Header -->
     <!-- Header -->
-    <div class="header bg-success">
+    <div class="header bg-primary">
       <div class="container-fluid" style="height: 100px">
         <!-- <div class="header-body">
           <div class="row align-items-center py-4">

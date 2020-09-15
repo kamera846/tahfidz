@@ -1,5 +1,30 @@
-<!-- Topnav -->
-@include('admin.component.navbar')
+<!--
+=========================================================
+* Argon Dashboard - v1.2.0
+=========================================================
+* Product Page: https://www.creative-tim.com/product/argon-dashboard
+
+
+* Copyright  Creative Tim (http://www.creative-tim.com)
+* Coded by www.creative-tim.com
+
+
+
+=========================================================
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+
+<!DOCTYPE html>
+<html>
+<?php echo $__env->make('templates.head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<body>
+  <!-- Sidenav -->
+  <?php echo $__env->make('admin.component.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  <!-- Main content -->
+  <div class="main-content" id="panel">
+    <!-- Topnav -->
+    <?php echo $__env->make('admin.component.navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <!-- Header -->
     <!-- Header -->
     <div class="header bg-primary pb-6">
@@ -115,4 +140,39 @@
       </div>
     </div>
     <!-- Page content -->
-    @include('admin.component.list_santri')
+    <div class="container-fluid mt--6">
+      <div class="row justify-content-md-center">
+        <?php echo $__env->yieldContent('content'); ?>
+      </div>
+      <!-- Footer -->
+      <footer class="footer pt-0">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-6">
+            <div class="copyright text-center  text-lg-left  text-muted">
+              &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+              <li class="nav-item">
+                <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <?php echo $__env->make('templates.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  </body>
+</html>

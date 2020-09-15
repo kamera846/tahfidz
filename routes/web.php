@@ -14,13 +14,13 @@
 Route::group(['middleware' => 'auth'], function () {
     // User
     Route::get('/', 'HomeController@index');
-    Route::get('/search', 'HomeController@search');
+    Route::get('/dashboard/user', 'Auth\UserController@index');
     
     // Admin
     Route::get('register/user', 'Auth\RegisterUserController@index');
     Route::post('register/user', 'Auth\RegisterUserController@registerUser');
 
-    // Manage Santri
+    // Manage Data Santri
     Route::get('/manage/santri', 'Auth\ManageSantriController@index');
 
     Route::get('/manage/santri/search', 'Auth\ManageSantriController@search');
@@ -49,6 +49,21 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/manage/wali/update/{id}', 'Auth\ManageWali@update');
 
     Route::get('/manage/wali/delete/{id}', 'Auth\ManageWali@delete');
+
+    // Manage Data Murojaah
+    Route::get('/manage/murojaah', 'Auth\ManageMurojaahController@index');
+
+    Route::get('/manage/murojaah/search', 'Auth\ManageMurojaahController@search');
+
+    Route::get('/manage/murojaah/new_data', 'Auth\ManageMurojaahController@new_data');
+
+    Route::post('/manage/murojaah/create', 'Auth\ManageMurojaahController@create');
+
+    Route::get('/manage/murojaah/edit/{id}', 'Auth\ManageMurojaahController@edit');
+
+    Route::put('/manage/murojaah/update/{id}', 'Auth\ManageMurojaahController@update');
+
+    Route::get('/manage/murojaah/delete/{id}', 'Auth\ManageMurojaahController@delete');
     
 });
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPaidToUsersTable extends Migration
+class CreateUstadzTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class AddPaidToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('wali', function (Blueprint $table) {
-            $table->integer('no_telp')->after('nama');
-            $table->string('alamat')->after('no_telp');
+        Schema::create('ustadz', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nama');
+            $table->char('no_telp');
+            $table->string('alamat');
+            $table->string('jk');
+            $table->timestamps();
         });
     }
 
@@ -26,9 +30,6 @@ class AddPaidToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('wali', function (Blueprint $table) {
-            $table->dropColumn('no_telp');
-            $table->dropColumn('alamat');
-        });
+        Schema::dropIfExists('ustadz');
     }
 }

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-top navbar-expand navbar-dark bg-success border-bottom">
+    <nav class="navbar navbar-top navbar-expand navbar-dark border-bottom bg-primary">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Search form -->

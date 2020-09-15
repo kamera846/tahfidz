@@ -6,17 +6,25 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Santri;
+use App\Wali;
 
-class ManageSantriController extends Controller
+class UserController extends Controller
 {
     public function index()
     {
         $user = Auth::user();
-        $santri = DB::table('santri')->get();
+        $id_user = $user->id;
+        $data_wali = Wali::with('santri')->get();
+        // $id = $data_wali->id;
+        // dd($data_wali);
+        // die();
+        // $id_wali = $data_wali->id;
+        // $santri = Santri::where('wali_id', $id_wali)->get();
 
-        return view('user.dashboard_user', [
+        return view('user.data_santri', [
             'user' => $user,
-            'santri' => $santri 
+            'santri' => $data_wali 
         ]);
     }
 

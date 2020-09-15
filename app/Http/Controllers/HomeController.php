@@ -38,17 +38,11 @@ class HomeController extends Controller
         
 
         if($level === "admin"){
-            return view('admin.dashboard', [
+            return view('admin.main-content', [
                 'user' => $user
             ]);
         } else {
-            // $data_wali = Wali::user()->id_wali;
-            // var_dump($data);
-            // die();
-            return view('user.data_santri', [
-                'user' => $user,
-                'data' => $data
-            ]);
+            return redirect('/dashboard/user');
         }
 
         

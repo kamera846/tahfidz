@@ -7,14 +7,14 @@
                 <div class="col">
                   <div class="row">
                     <a href="/manage/santri"><h2 class="mb-0">List Santri</h2></a>
-                    <a href="/manage/santri/new_data" class="btn btn-sm btn-primary ml-3">New
+                    <a href="/manage/santri/new_data" class="btn btn-sm btn-success ml-3">New
                     </a>
                   </div>
                 </div>
                 
                 <form class="form-inline" action="/manage/santri/search" method="GET">
                   <input class="form-control form-control-sm mr-sm-2" type="text" name="cari" placeholder="Search" value="<?php echo e(old('cari')); ?>">
-                  <button class="btn btn-success btn-sm mr-3" type="submit">Search</button>
+                  <button class="btn btn-primary btn-sm mr-3" type="submit">Search</button>
                 </form>
               </div>
             </div>
@@ -38,6 +38,7 @@
                     <td><?php echo e($s->jk); ?></td>
                     <td><?php echo e($s->wali->nama); ?></td>
                     <td>
+                    <!-- <a href="/santri/hafalan/baru/<?php echo e($s->id); ?>" class="btn btn-primary btn-sm">Murojaah</a> -->
                       <a href="/manage/santri/delete/<?php echo e($s->id); ?>"><i class="fas fa-trash text-danger mr-3"></i></a>
                       <a href="/manage/santri/edit/<?php echo e($s->id); ?>"><i class="ni ni-curved-next text-primary"></i></a>
                     </td>

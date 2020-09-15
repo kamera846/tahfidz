@@ -15,7 +15,7 @@ class ManageWali extends Controller
     {
         $user = Auth::user();
         $level = 'user';
-        $data = User::where('level', $level)->get();
+        $data = Wali::get();
         // $alamat = User::find(1)->wali('alamat');
         // var_dump($alamat);
         // die();
@@ -73,10 +73,7 @@ class ManageWali extends Controller
 
         $user = Auth::user();
         $level = 'user';
-        $data = User::where([
-                ['level', $level],
-                ['name', 'like', "%".$nama."%"]
-            ])->paginate(5);
+        $data = Wali::where('nama', 'like', "%".$nama."%")->get();
 
         return view('admin.manage_wali.table_user', [
             'user' => $user,
@@ -128,7 +125,6 @@ class ManageWali extends Controller
     public function delete($id)
     {
         User::find($id)->delete();
-        Wali::where('user_id', $id)->delete();
 
         return redirect('/manage/wali');
     }

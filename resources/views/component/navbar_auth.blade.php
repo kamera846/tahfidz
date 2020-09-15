@@ -1,4 +1,4 @@
-<nav class="navbar navbar-top navbar-expand navbar-dark bg-success border-bottom">
+    <nav class="navbar navbar-top navbar-expand-md navbar-dark bg-gradient-primary border-bottom" id="navbar-main">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Search form -->
@@ -15,6 +15,8 @@
               <span aria-hidden="true">×</span>
             </button>
           </form> -->
+          <!-- Brand -->
+          <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ url('home') }}">{{ __('Dashboard') }}</a>
           <!-- Navbar links -->
           <ul class="navbar-nav align-items-center  ml-md-auto ">
             <li class="nav-item d-xl-none">

@@ -1,6 +1,8 @@
 @extends('admin.dashboard')
 	  @section('content')
-		<div class="col col-xl-6">
+    <div class="container-fluid">
+      <div class="row justify-content-md-center">
+        <div class="col col-xl-6">
           <div class="card p-3">
             <div class="card-header border-0">
               <div class="row align-items-center">
@@ -103,4 +105,8 @@
             </div>
           </div>
         </div>
+      </div>
+      @include('component.footer')
+    </div>
+		    
       @endsection

@@ -31,6 +31,6 @@ class CreateWaliTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('wali');
     }
 }

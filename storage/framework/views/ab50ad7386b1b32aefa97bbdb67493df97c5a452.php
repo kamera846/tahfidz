@@ -27,64 +27,30 @@
     <link rel="stylesheet" href="<?php echo e(asset('argon/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css')); ?>" type="text/css">
     <!-- Argon CSS -->
     <link rel="stylesheet" href="<?php echo e(asset('argon/assets/css/argon.css?v=1.2.0')); ?>" type="text/css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/login.css')); ?>" type="text/css">
 </head>
 
-<body class="bg-default">
-    <!-- Navbar -->
-    <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="dashboard.html">
-                <img src="<?php echo e(asset('argon/assets/img/brand/white.png')); ?>">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse navbar-custom-collapse collapse" id="navbar-collapse">
-                <div class="navbar-collapse-header">
-                    <div class="row">
-                        <div class="col-6 collapse-brand">
-                            <a href="dashboard.html">
-                                <img src="<?php echo e(asset('argon/assets/img/brand/blue.png')); ?>">
-                            </a>
-                        </div>
-                        <div class="col-6 collapse-close">
-                            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                                <span></span>
-                                <span></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <hr class="d-lg-none" />
-            </div>
-        </div>
-    </nav>
+<body>
     <!-- Main content -->
     <div class="main-content">
-        <!-- Header -->
-        <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
-            <div class="container">
-                <div class="header-body text-center mb-7">
-                    <div class="row justify-content-center">
-                        <div class="col-xl-5 col-lg-6 col-md-8 px-5">
-                            <h1 class="text-white">Sign In to Tahfidz</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="separator separator-bottom separator-skew zindex-100">
-                <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                    <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
-                </svg>
-            </div>
-        </div>
         <!-- Page content -->
-        <div class="container mt--8 pb-5">
+        <div class="container-fluid pt-6 pb-4">
             <div class="row justify-content-center">
-                <div class="col-lg-5 col-md-7">
-                    <div class="card bg-secondary border-0 mb-0">
-                        <div class="card-body px-lg-5 py-lg-5">
-                            <div class="text-center text-muted mb-4">
+                <div class="col-md-5 left-side">
+                    <p class="text-1">| Tahfidz Boarding School</p>
+                    <p class="text-2">Annur II Al-Murtadlo</p>
+                    <img src="<?php echo e(asset('assets/img/illustration-4.png')); ?>" alt="illustration" class="illustration-1">
+                </div>
+
+                <!-- Form Login -->
+                <div class="col-lg-5 col-md-5 px-lg-5">
+                    <div class="card shadow">
+                        <div class="card-body px-lg-5 py-lg-4">
+                            <div align="center">
+                                <img src="<?php echo e(asset('assets/img/icon_final.png')); ?>" alt="logo" height="200">
+                            </div>
+                            <div class="text-center text-muted mb-4 ">
                                 <small>Credentials Sign In</small>
                             </div>
                             <form role="form" class="form-horizontal" method="POST" action="<?php echo e(route('login')); ?>">
@@ -96,12 +62,12 @@
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                         </div>
                                         <input placeholder="Email" id="email" type="email" class="form-control" name="email" value="<?php echo e(old('email')); ?>" required autofocus>
-                                        <?php if($errors->has('email')): ?>
-                                        <span class="help-block">
+                                    </div>
+                                    <?php if($errors->has('email')): ?>
+                                        <span class="invalid-feedback" style="display: block;">
                                             <strong><?php echo e($errors->first('email')); ?></strong>
                                         </span>
                                         <?php endif; ?>
-                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group input-group-merge input-group-alternative">
@@ -109,33 +75,41 @@
                                             <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                         </div>
                                         <input placeholder="Password" id="password" type="password" class="form-control" name="password" required>
-                                        <?php if($errors->has('password')): ?>
-                                        <span class="help-block">
+                                        
+                                    </div>
+                                    <?php if($errors->has('password')): ?>
+                                        <span class="invalid-feedback" style="display: block;">
                                             <strong><?php echo e($errors->first('password')); ?></strong>
                                         </span>
                                         <?php endif; ?>
-                                    </div>
                                 </div>
 
                                 <div class="row mt-3">
-                                    <div class="custom-control custom-control-alternative custom-checkbox">
-                                        <input class="custom-control-input" id=" customCheckLogin" type="checkbox" name="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>>
-                                        <label class="custom-control-label" for=" customCheckLogin">
-                                            <span class="text-muted">Remember me</span>
-                                        </label>
+                                    <div class="col-md-6">
+                                        <div class="custom-control custom-control-alternative custom-checkbox">
+                                            <input class="custom-control-input" id=" customCheckLogin" type="checkbox" name="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>>
+                                            <label class="custom-control-label" for=" customCheckLogin">
+                                                <span class="text-muted">Remember me</span>
+                                            </label>
+                                        </div>
                                     </div>
-                                    <div class="col-8 text-right">
+                                    <div class="col-lg-6 text-right">
                                         <a href="<?php echo e(route('password.request')); ?>" class="text-light"><small>Forgot password?</small></a>
                                     </div>
                                 </div>
 
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary my-4">Sign in</button>
+                                    <button type="submit" class="btn btn-default btn-block my-5">Sign in</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="container-fluid p-3">
+            <div class="copyright text-center text-muted">
+                &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Tahfidz Boarding School</a> | All Rights Reserved
             </div>
         </div>
     </div>
