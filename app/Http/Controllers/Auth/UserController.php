@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $id_user = $user->id;
-        $data_wali = Wali::with('santri')->get();
+        $data_wali = Wali::where('user_id', $id_user)->get();
         // $id = $data_wali->id;
         // dd($data_wali);
         // die();

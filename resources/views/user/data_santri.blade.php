@@ -1,6 +1,6 @@
   @extends('user.dashboard')
 	  @section('content')
-	    <div class="col-xl-10 mt-5">
+	    <div class="col-xl-8 mt-5">
         <div class="card p-3">
           <div class="card-body">
             <h1 class="card-title">Data Santri</h1>

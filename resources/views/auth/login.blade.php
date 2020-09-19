@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}" type="text/css">
 </head>
 
-<body>
+<body class="bg-secondary">
     <!-- Main content -->
     <div class="main-content">
         <!-- Page content -->

@@ -19,4 +19,9 @@ class Santri extends Model
     {
     	return $this->belongsTo('App\Wali', 'wali_id');
     }
+
+    public function murojaah()
+    {
+    	return $this->hasMany('App\Murojaah');
+    }
 }

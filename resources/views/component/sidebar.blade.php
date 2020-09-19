@@ -34,9 +34,9 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="/manage/hafalan">
+              <a class="nav-link" href="/manage/murojaah">
                 <i class="fas fa-quran text-green"></i>
-                <span class="nav-link-text">Hafalan</span>
+                <span class="nav-link-text">Murojaah</span>
               </a>
             </li>
 

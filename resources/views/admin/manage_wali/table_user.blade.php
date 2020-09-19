@@ -2,7 +2,7 @@
 	  @section('content')
     <div class="container-fluid">
       <div class="row justify-content-md-center">
-        <div class="col-xl-12 mt-5">
+        <div class="col-xl-10 mt-5">
           <div class="card p-3">
             <div class="card-header border-0">
               <div class="row align-items-center">
@@ -27,9 +27,6 @@
                   <tr>
                     <th scope="col">Email Wali</th>
                     <th scope="col">Nama Wali Santri</th>
-                    <th scope="col">No. Telp</th>
-                    <th scope="col">Alamat</th>
-                    <th scope="col">JK</th>
                     <th scope="col">Opsi</th>
                   </tr>
                 </thead>
@@ -38,9 +35,6 @@
                   <tr>
                     <td>{{ $d->user->email }}</td>
                     <td>{{ $d->nama }}</td>
-                    <td>{{ $d->no_telp }}</td>
-                    <td>{{ $d->alamat }}</td>
-                    <td>{{ $d->jk }}</td>
                     <td>
                       <a href="/manage/wali/delete/{{ $d->user->id }}"><i class="fas fa-trash text-danger mr-3"></i></a>
                       <a href="/manage/wali/edit/{{ $d->user->id }}"><i class="ni ni-curved-next text-primary"></i></a>

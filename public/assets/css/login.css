@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(230, 230, 230);
+    /* background-color: rgb(242, 247, 255); */
 }
 
 /* left-side */
@@ -20,9 +20,9 @@ body {
 }
 
 .illustration-1 {
+    transform: rotateY(180deg);
     position: absolute;
     bottom: 50px;
-    right: 50px;
     height: auto;
     max-width: 70%;
 

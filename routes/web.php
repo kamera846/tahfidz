@@ -55,13 +55,13 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/manage/murojaah/search', 'Auth\ManageMurojaahController@search');
 
-    Route::get('/manage/murojaah/new_data', 'Auth\ManageMurojaahController@new_data');
+    Route::get('/manage/murojaah/detail/{id}', 'Auth\ManageMurojaahController@detail_murojaah');
 
-    Route::post('/manage/murojaah/create', 'Auth\ManageMurojaahController@create');
+    Route::post('/manage/murojaah/wajib/create/{id}', 'Auth\ManageMurojaahController@create_murojaah_wajib');
 
-    Route::get('/manage/murojaah/edit/{id}', 'Auth\ManageMurojaahController@edit');
+    // Route::get('/manage/murojaah/edit/{id}', 'Auth\ManageMurojaahController@edit');
 
-    Route::put('/manage/murojaah/update/{id}', 'Auth\ManageMurojaahController@update');
+    // Route::put('/manage/murojaah/update/{id}', 'Auth\ManageMurojaahController@update');
 
     Route::get('/manage/murojaah/delete/{id}', 'Auth\ManageMurojaahController@delete');
     
