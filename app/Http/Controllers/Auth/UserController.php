@@ -14,17 +14,17 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $id_user = $user->id;
-        $data_wali = Wali::where('user_id', $id_user)->get();
+        $id = $user->id;
+        // $data_wali = Santri::where('user_id', $id_user)->get();
         // $id = $data_wali->id;
-        // dd($data_wali);
-        // die();
         // $id_wali = $data_wali->id;
-        // $santri = Santri::where('wali_id', $id_wali)->get();
+        $santri = Santri::where('wali_id', $id)->get();
+        // dd($santri);
+        // die();
 
         return view('user.data_santri', [
             'user' => $user,
-            'santri' => $data_wali 
+            'santri' => $santri 
         ]);
     }
 

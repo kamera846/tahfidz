@@ -1,6 +1,8 @@
-      
-	    <?php $__env->startSection('content'); ?>
-    	  <div class="col col-xl-6">
+  
+  <?php $__env->startSection('content'); ?>
+    <div class="container-fluid">
+      <div class="row justify-content-md-center">
+        <div class="col col-xl-6">
           <div class="card">
             <div class="card-header border-0">
               <div class="row align-items-center">
@@ -54,5 +56,8 @@
             </div>
           </div>
         </div>
-      <?php $__env->stopSection(); ?>
+      </div>
+      <?php echo $__env->make('component.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    </div>
+  <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.dashboard', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

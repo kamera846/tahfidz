@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Wali;
 use App\Santri;
+use App\Murojaah;
 
 class HomeController extends Controller
 {
@@ -32,14 +33,16 @@ class HomeController extends Controller
         $user = Auth::user();
         $id = $user->id;
         $level = $user->level;
-        $data = User::find($id)->paginate();
-        // $id_wali = $data_wali->id_wali;
-        // $data_santri = Santri::find($id);
-        
+        $data_user = User::all()->count();
+        $data_santri = Santri::all()->count();
+        $data_murojaah = Murojaah::all()->count();
 
         if($level === "admin"){
             return view('admin.main-content', [
-                'user' => $user
+                'user' => $user,
+                'data_user' => $data_user,
+                'data_santri' => $data_santri,
+                'data_murojaah' => $data_murojaah,
             ]);
         } else {
             return redirect('/dashboard/user');

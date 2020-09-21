@@ -23,6 +23,7 @@ class SPPSeeder extends Seeder
             DB::table('spp')->insert([
                 'santri_id' => $faker->numberBetween(1,10),
                 'nominal' => $faker->randomNumber,
+                'created_at' => $faker->dateTimeThisMonth()->format('Y-m-d H:i:s')
             ]);
         };
     }

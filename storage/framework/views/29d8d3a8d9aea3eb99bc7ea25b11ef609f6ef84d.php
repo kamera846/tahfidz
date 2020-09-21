@@ -1,6 +1,7 @@
   
 	  <?php $__env->startSection('content'); ?>
 	    <div class="col-xl-8 mt-5">
+        <?php $__currentLoopData = $santri; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="card p-3">
           <div class="card-body">
             <h1 class="card-title">Data Santri</h1>
@@ -8,19 +9,19 @@
               <div class="form-group row mb-1">
                 <label for="staticEmail" class="col-sm-2 col-form-label">Nama</label>
                 <div class="col-sm-10">
-                  <b><input type="text" readonly class="form-control-plaintext" id="staticEmail" value="Dwi Andika Darma Putra"></b>
+                  <b><input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo e($s->nama); ?>"></b>
                 </div>
               </div>
               <div class="form-group row mb-1">
                 <label for="staticEmail" class="col-sm-2 col-form-label">Kelas</label>
                 <div class="col-sm-10">
-                  <b><input type="text" readonly class="form-control-plaintext" id="staticEmail" value="12-IPA-3"></b>
+                  <b><input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo e($s->kelas); ?>"></b>
                 </div>
               </div>
               <div class="form-group row mb-1">
                 <label for="staticEmail" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                 <div class="col-sm-10">
-                  <b><input type="text" readonly class="form-control-plaintext" id="staticEmail" value="Laki-laki"></b>
+                  <b><input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo e($s->jk); ?>"></b>
                 </div>
               </div>
             </form>
@@ -28,6 +29,7 @@
             <a href="#" class="card-link btn btn-secondary">SPP Santri</a>
           </div>
         </div>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       </div>
     <?php $__env->stopSection(); ?>
 

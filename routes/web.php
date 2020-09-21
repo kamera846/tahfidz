@@ -59,6 +59,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('/manage/murojaah/wajib/create/{id}', 'Auth\ManageMurojaahController@create_murojaah_wajib');
 
+    Route::post('/manage/murojaah/tambahan/create/{id}', 'Auth\ManageMurojaahController@create_murojaah_tambahan');
+
     // Route::get('/manage/murojaah/edit/{id}', 'Auth\ManageMurojaahController@edit');
 
     // Route::put('/manage/murojaah/update/{id}', 'Auth\ManageMurojaahController@update');

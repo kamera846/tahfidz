@@ -15,13 +15,16 @@ class ManageMurojaahController extends Controller
     {
         $user = Auth::user();
         $data_santri = Santri::all();
-        // $alamat = User::find(1)->wali('alamat');
-        // var_dump($alamat);
+        $id = 46;
+        $jenis = 'tambahan';
+        $data = Murojaah::orderBy('created_at', $jenis)->first();
+        // var_dump($data->created_at);
         // die();
 
         return view('admin.manage_murojaah.table_murojaah', [
             'user' => $user,
-            'data_santri' => $data_santri
+            'data_santri' => $data_santri,
+            'data' => $data
         ]);
     }
 
@@ -85,6 +88,45 @@ class ManageMurojaahController extends Controller
             $murojaah->halaman = $request->halaman;
             $murojaah->jumlah_hafalan = $request->jumlah_hafalan;
             $murojaah->jenis = 'wajib';
+            $murojaah->status_hafalan = 0;
+            $murojaah->created_at = date('Y-m-d H:i:s');
+            $murojaah->save();
+        } 
+        // else {
+        //     return view('auth.register_user', [
+        //         'message' => 'Failed add user, try again or back to dashboard'
+        //     ]);
+        // }
+
+    	return redirect('/manage/murojaah');
+    }
+
+    public function create_murojaah_tambahan(Request $request, $id)
+    {
+    	$this->validate($request, [
+            'juz' => 'required',
+	    	'halaman' => 'required',
+	        'jumlah_hafalan' => 'required',
+            'status_hafalan' => 'required'
+        ]);
+
+        if($request->status_hafalan === "Lancar") {
+            $murojaah = new Murojaah();
+            $murojaah->santri_id = $id;
+            $murojaah->juz = $request->juz;
+            $murojaah->halaman = $request->halaman;
+            $murojaah->jumlah_hafalan = $request->jumlah_hafalan;
+            $murojaah->jenis = 'tambahan';
+            $murojaah->status_hafalan = 1; 
+            $murojaah->created_at = date('Y-m-d H:i:s');
+            $murojaah->save();
+        } else if ($request->status_hafalan === "Belum Lancar") {
+            $murojaah = new Murojaah();
+            $murojaah->santri_id = $id;
+            $murojaah->juz = $request->juz;
+            $murojaah->halaman = $request->halaman;
+            $murojaah->jumlah_hafalan = $request->jumlah_hafalan;
+            $murojaah->jenis = 'tambahan';
             $murojaah->status_hafalan = 0;
             $murojaah->created_at = date('Y-m-d H:i:s');
             $murojaah->save();

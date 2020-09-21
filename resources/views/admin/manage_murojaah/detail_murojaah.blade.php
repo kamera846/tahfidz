@@ -57,7 +57,7 @@
                   <button class="btn btn-sm btn-success ml-3" data-toggle="modal" data-target="#murojaahWajib">New</button>
                 </div>
 
-                <!-- Modal Murojaah Tambahan -->
+                <!-- Modal Murojaah Wajib -->
                 <div class="modal fade" id="murojaahWajib" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="murojaahWajibLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
@@ -74,7 +74,7 @@
                           <div class="form-group mb-3">
                             <div class="input-group input-group-merge input-group-alternative">
                               <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-users"></i></span>
+                                <span class="input-group-text"><i class="ni ni-tag text-danger"></i></span>
                               </div>
                               <input placeholder="Juz ke-" id="juz" type="number" class="form-control" name="juz" value="{{ old('juz') }}" required autofocus>
                             </div>
@@ -83,7 +83,7 @@
                           <div class="form-group mb-3">
                             <div class="input-group input-group-merge input-group-alternative">
                               <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-users"></i></span>
+                                <span class="input-group-text"><i class="ni ni-tag text-yellow"></i></span>
                               </div>
                               <input placeholder="Nomor Halaman" id="halaman" type="number" class="form-control" name="halaman" value="{{ old('halaman') }}" required>
                             </div>
@@ -92,7 +92,7 @@
                           <div class="form-group mb-3">
                             <div class="input-group input-group-merge input-group-alternative">
                               <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-users"></i></span>
+                                <span class="input-group-text"><i class="ni ni-tag text-primary"></i></span>
                               </div>
                               <input placeholder="Jumlah Hafalan" id="jumlah_hafalan" type="text" class="form-control" name="jumlah_hafalan" value="{{ old('jumlah_hafalan') }}" required>
                             </div>
@@ -101,7 +101,7 @@
                           <div class="form-group mb-3">
                             <div class="input-group input-group-merge input-group-alternative">
                               <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                                <span class="input-group-text"><i class="ni ni-tag text-success"></i></span>
                               </div>
                               <input placeholder="Status Hafalan" id="status_hafalan" type="text" class="form-control" name="status_hafalan" value="{{ old('status_hafalan') }}" required autofocus>
                             </div>
@@ -171,74 +171,61 @@
                   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="murojaahTambahanLabel">Modal title</h5>
+                        <h5 class="modal-title" id="murojaahTambahanLabel">Buat Murojaah Tambahan Baru</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        <form class="form-horizontal" action="/manage/santri/create" method="post">
+                      <form class="form-horizontal" action="/manage/murojaah/tambahan/create/{{ $data_santri->id }}" method="post">
                           {{ csrf_field() }}
-                          <div class="form-group mb-3">
-                            <div class="input-group input-group-merge input-group-alternative">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-single-02"></i></span>
-                              </div>
-                              <input placeholder="Nama Santri" id="nama" type="text" class="form-control" name="nama" value="{{ old('nama') }}" required autofocus>
-                            </div>
-                          </div>
-
-                          <!-- <div class="form-group mb-3">
-                            <div class="input-group input-group-merge input-group-alternative">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-users"></i></span>
-                              </div>
-                              <input placeholder="Id Wali" id="id_wali" type="number" class="form-control" name="id_wali" value="{{ old('id_wali') }}" required>
-                            </div>
-                          </div> -->
-
-                          <!-- <div class="form-group">
-                            <div class="input-group input-group-merge input-group-alternative">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-users"></i></span>
-                              </div>
-                              <input placeholder="Nama Wali Santri" id="nama_wali" type="text" class="form-control" name="nama_wali" value="{{ old('nama_wali') }}" required>
-                            </div>
-                          </div> -->
 
                           <div class="form-group mb-3">
                             <div class="input-group input-group-merge input-group-alternative">
                               <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                                <span class="input-group-text"><i class="ni ni-tag text-danger"></i></span>
                               </div>
-                              <input placeholder="Kelas" id="kelas" type="text" class="form-control" name="kelas" value="{{ old('kelas') }}" required>
+                              <input placeholder="Juz ke-" id="juz" type="number" class="form-control" name="juz" value="{{ old('juz') }}" required autofocus>
                             </div>
                           </div>
+
                           <div class="form-group mb-3">
                             <div class="input-group input-group-merge input-group-alternative">
                               <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
+                                <span class="input-group-text"><i class="ni ni-tag text-yellow"></i></span>
                               </div>
-                              <input placeholder="Jenis Kelamin" id="jk" type="text" class="form-control" name="jk" value="{{ old('jk') }}" required>
+                              <input placeholder="Nomor Halaman" id="halaman" type="number" class="form-control" name="halaman" value="{{ old('halaman') }}" required>
                             </div>
                           </div>
+
                           <div class="form-group mb-3">
                             <div class="input-group input-group-merge input-group-alternative">
                               <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user-friends"></i></span>
+                                <span class="input-group-text"><i class="ni ni-tag text-primary"></i></span>
                               </div>
-                              <input placeholder="Nama Lengkap Wali" id="nama_wali" type="text" class="form-control" name="nama_wali" value="{{ old('nama_wali') }}" required>
+                              <input placeholder="Jumlah Hafalan" id="jumlah_hafalan" type="text" class="form-control" name="jumlah_hafalan" value="{{ old('jumlah_hafalan') }}" required>
                             </div>
                           </div>
-                          <div class="text-center">
-                            <button type="submit" class="btn btn-success mt-4">Simpan</button>
+
+                          <div class="form-group mb-3">
+                            <div class="input-group input-group-merge input-group-alternative">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-tag text-success"></i></span>
+                              </div>
+                              <input placeholder="Status Hafalan" id="status_hafalan" type="text" class="form-control" name="status_hafalan" value="{{ old('status_hafalan') }}" required autofocus>
+                            </div>
+                          </div>
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-success">Simpan</button>
                           </div>
                         </form>
                       </div>
-                      <div class="modal-footer">
+                      <!-- <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                         <button type="button" class="btn btn-success">Simpan</button>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>
