@@ -124,7 +124,7 @@
                 <!-- Table Data Murojaah Wajib -->
                 <div>
                   <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
+                  <thead class="thead-light text-center">
                       <tr>
                         <th scope="col">Tanggal</th>
                         <th scope="col">Juz</th>
@@ -137,11 +137,11 @@
                     @foreach($data_murojaah as $data)
                       @if( $data->jenis === 'wajib' )
                       <tr>
-                        <td>{{ $data->created_at->format('d M Y') }}</td>
-                        <td>{{ $data->juz }}</td>
-                        <td>{{ $data->halaman }}</td>
-                        <td>{{ $data->jumlah_hafalan }}</td>
-                        <td>
+                        <td class="text-center">{{ $data->created_at->format('d M Y') }}</td>
+                        <td class="text-center">{{ $data->juz }}</td>
+                        <td class="text-center">{{ $data->halaman }}</td>
+                        <td class="text-center">{{ $data->jumlah_hafalan }} Halaman</td>
+                        <td class="text-center">
                           @if( $data->status_hafalan === 1)
                             <span class="badge badge-success">Lancar</span>
                           @else
@@ -233,7 +233,7 @@
                 <!-- Table Data Murojahh Tambahan -->
                 <div>
                   <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
+                    <thead class="thead-light text-center">
                       <tr>
                         <th scope="col">Tanggal</th>
                         <th scope="col">Juz</th>
@@ -246,11 +246,11 @@
                     @foreach($data_murojaah as $data)
                       @if( $data->jenis === 'tambahan' )
                       <tr>
-                        <td>{{ $data->created_at->format('d M Y') }}</td>
-                        <td>{{ $data->juz }}</td>
-                        <td>{{ $data->halaman }}</td>
-                        <td>{{ $data->jumlah_hafalan }}</td>
-                        <td>
+                        <td class="text-center">{{ $data->created_at->format('d M Y') }}</td>
+                        <td class="text-center">{{ $data->juz }}</td>
+                        <td class="text-center">{{ $data->halaman }}</td>
+                        <td class="text-center">{{ $data->jumlah_hafalan }} Halaman</td>
+                        <td class="text-center">
                           @if( $data->status_hafalan === 1)
                             <span class="badge badge-success">Lancar</span>
                           @else

@@ -67,6 +67,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/manage/murojaah/delete/{id}', 'Auth\ManageMurojaahController@delete');
     
+    // Manage Hafalan Juz Santri
+    Route::get('/manage/juz', 'Auth\ManageJuzController@index');
+
+    Route::get('/manage/juz/search', 'Auth\ManageJuzController@search');
+    
 });
 
 Route::get('add-user', function () {

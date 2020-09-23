@@ -124,7 +124,7 @@
                 <!-- Table Data Murojaah Wajib -->
                 <div>
                   <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
+                  <thead class="thead-light text-center">
                       <tr>
                         <th scope="col">Tanggal</th>
                         <th scope="col">Juz</th>
@@ -137,11 +137,11 @@
                     <?php $__currentLoopData = $data_murojaah; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <?php if( $data->jenis === 'wajib' ): ?>
                       <tr>
-                        <td><?php echo e($data->created_at->format('d M Y')); ?></td>
-                        <td><?php echo e($data->juz); ?></td>
-                        <td><?php echo e($data->halaman); ?></td>
-                        <td><?php echo e($data->jumlah_hafalan); ?></td>
-                        <td>
+                        <td class="text-center"><?php echo e($data->created_at->format('d M Y')); ?></td>
+                        <td class="text-center"><?php echo e($data->juz); ?></td>
+                        <td class="text-center"><?php echo e($data->halaman); ?></td>
+                        <td class="text-center"><?php echo e($data->jumlah_hafalan); ?> Halaman</td>
+                        <td class="text-center">
                           <?php if( $data->status_hafalan === 1): ?>
                             <span class="badge badge-success">Lancar</span>
                           <?php else: ?>
@@ -234,7 +234,7 @@
                 <!-- Table Data Murojahh Tambahan -->
                 <div>
                   <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
+                    <thead class="thead-light text-center">
                       <tr>
                         <th scope="col">Tanggal</th>
                         <th scope="col">Juz</th>
@@ -247,11 +247,11 @@
                     <?php $__currentLoopData = $data_murojaah; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                       <?php if( $data->jenis === 'tambahan' ): ?>
                       <tr>
-                        <td><?php echo e($data->created_at->format('d M Y')); ?></td>
-                        <td><?php echo e($data->juz); ?></td>
-                        <td><?php echo e($data->halaman); ?></td>
-                        <td><?php echo e($data->jumlah_hafalan); ?></td>
-                        <td>
+                        <td class="text-center"><?php echo e($data->created_at->format('d M Y')); ?></td>
+                        <td class="text-center"><?php echo e($data->juz); ?></td>
+                        <td class="text-center"><?php echo e($data->halaman); ?></td>
+                        <td class="text-center"><?php echo e($data->jumlah_hafalan); ?> Halaman</td>
+                        <td class="text-center">
                           <?php if( $data->status_hafalan === 1): ?>
                             <span class="badge badge-success">Lancar</span>
                           <?php else: ?>

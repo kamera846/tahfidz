@@ -22,6 +22,11 @@ class Santri extends Model
 
     public function murojaah()
     {
-    	return $this->hasMany('App\Murojaah');
+    	return $this->hasOne('App\Murojaah');
+    }
+
+    public function juz()
+    {
+        return $this->hasOne('App\Juz');
     }
 }

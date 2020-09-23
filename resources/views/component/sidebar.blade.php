@@ -40,12 +40,12 @@
               </a>
             </li>
 
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="examples/login.html">
-                <i class="ni ni-key-25 text-purple"></i>
+            <li class="nav-item">
+              <a class="nav-link" href="/manage/juz">
+                <i class="ni ni-key-25 text-orange"></i>
                 <span class="nav-link-text">Juz</span>
               </a>
-            </li> -->
+            </li>
 
             <li class="nav-item">
               <a class="nav-link" href="examples/tables.html">

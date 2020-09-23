@@ -14,21 +14,21 @@ class MurojaahSeeder extends Seeder
     {
         // data faker indonesia
         $faker = Faker::create('id_ID');
-        static $order = 75;
+        static $order = 47;
 
         // membuat data dummy
         for($x = 1; $x <= 20; $x++) {
             
-            // inser data dummy santri dengan faker
-            DB::table('santri')->insert([
-                'santri_id' => $faker->numberBetween(46, 64),
-                'surat_id' => $faker->numberBetween(1, 144),
-                'no_ayat' => $faker->numberBetween(1,10),
-                'tanggal' => $faker->numberBetween(1,6),
-                'keterangan' => $faker->randomElement($array = array('lanjut', 'ulang')),
+            // inser data dummy murojaah dengan faker
+            DB::table('murojaah')->insert([
+                'santri_id' => $order++,
+                'halaman' => $faker->numberBetween(1,20),
+                'jumlah_hafalan' => $faker->randomElement($array = array('1/4', '2/4', '3/4', '4/4')),
+                'jenis' => $faker->randomElement($array = array('wajib', 'tambahan')),
+                'status_hafalan' => $faker->numberBetween(0, 1),
+                // 'keterangan' => $faker->randomElement($array = array('lanjut', 'ulang')),
                 'created_at' => $faker->dateTimeThisMonth()->format('Y-m-d H:i:s')
             ]);
         };
-
     }
 }
