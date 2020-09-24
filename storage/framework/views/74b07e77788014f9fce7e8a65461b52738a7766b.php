@@ -74,15 +74,6 @@
                           <div class="form-group mb-3">
                             <div class="input-group input-group-merge input-group-alternative">
                               <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-tag text-danger"></i></span>
-                              </div>
-                              <input placeholder="Juz ke-" id="juz" type="number" class="form-control" name="juz" value="<?php echo e(old('juz')); ?>" required autofocus>
-                            </div>
-                          </div>
-
-                          <div class="form-group mb-3">
-                            <div class="input-group input-group-merge input-group-alternative">
-                              <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-tag text-yellow"></i></span>
                               </div>
                               <input placeholder="Nomor Halaman" id="halaman" type="number" class="form-control" name="halaman" value="<?php echo e(old('halaman')); ?>" required>
@@ -180,15 +171,6 @@
                       <form class="form-horizontal" action="/manage/murojaah/tambahan/create/<?php echo e($data_santri->id); ?>" method="post">
                           <?php echo e(csrf_field()); ?>
 
-
-                          <div class="form-group mb-3">
-                            <div class="input-group input-group-merge input-group-alternative">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-tag text-danger"></i></span>
-                              </div>
-                              <input placeholder="Juz ke-" id="juz" type="number" class="form-control" name="juz" value="<?php echo e(old('juz')); ?>" required autofocus>
-                            </div>
-                          </div>
 
                           <div class="form-group mb-3">
                             <div class="input-group input-group-merge input-group-alternative">

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 Use App\Santri;
 Use App\Murojaah;
+Use App\Juz;
 
 class ManageMurojaahController extends Controller
 {
@@ -15,7 +16,6 @@ class ManageMurojaahController extends Controller
     {
         $user = Auth::user();
         $data_santri = Santri::all();
-        $id = 46;
         $jenis = 'tambahan';
         $data = Murojaah::orderBy('created_at', $jenis)->first();
         // var_dump($data->created_at);
@@ -65,22 +65,38 @@ class ManageMurojaahController extends Controller
     public function create_murojaah_wajib(Request $request, $id)
     {
     	$this->validate($request, [
-            'juz' => 'required',
 	    	'halaman' => 'required',
 	        'jumlah_hafalan' => 'required',
             'status_hafalan' => 'required'
         ]);
 
         if($request->status_hafalan === "Lancar") {
-            $murojaah = new Murojaah();
-            $murojaah->santri_id = $id;
-            $murojaah->juz = $request->juz;
-            $murojaah->halaman = $request->halaman;
-            $murojaah->jumlah_hafalan = $request->jumlah_hafalan;
-            $murojaah->jenis = 'wajib';
-            $murojaah->status_hafalan = 1; 
-            $murojaah->created_at = date('Y-m-d H:i:s');
-            $murojaah->save();
+            if( $request->halaman === '20' || $request->jumlah_hafalan === '4/4') {
+                $juz = Juz::where('santri_id', $id)->first()->juz_ke;
+                $hafalan_juz = Juz::where('santri_id', $id);
+                $hafalan_juz->juz_ke = $juz + 1;
+                $hafalan_juz->updated_at = date('Y-m-d H:i:s'); 
+                $hafalan_juz->save();
+
+                $murojaah = new Murojaah();
+                $murojaah->santri_id = $id;
+                $murojaah->halaman = $request->halaman;
+                $murojaah->jumlah_hafalan = $request->jumlah_hafalan;
+                $murojaah->jenis = 'wajib';
+                $murojaah->status_hafalan = 1; 
+                $murojaah->created_at = date('Y-m-d H:i:s');
+                $murojaah->save();
+            } else {
+                $murojaah = new Murojaah();
+                $murojaah->santri_id = $id;
+                $murojaah->halaman = $request->halaman;
+                $murojaah->jumlah_hafalan = $request->jumlah_hafalan;
+                $murojaah->jenis = 'wajib';
+                $murojaah->status_hafalan = 1; 
+                $murojaah->created_at = date('Y-m-d H:i:s');
+                $murojaah->save();
+            }
+
         } else if ($request->status_hafalan === "Belum Lancar") {
             $murojaah = new Murojaah();
             $murojaah->santri_id = $id;
