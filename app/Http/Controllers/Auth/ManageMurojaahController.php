@@ -52,7 +52,10 @@ class ManageMurojaahController extends Controller
         $data_santri = Santri::find($id);
         $jenis = "wajib";
         $data_murojaah = Murojaah::where('santri_id', $id)->get();
-        // var_dump($data_murojaah);
+        // $data = Juz::where('santri_id', $id)->first();
+        // $id = $data->id;
+        // $juz = $data->juz_ke;
+        // var_dump($id, $juz);
         // die();
         
         return view('admin.manage_murojaah.detail_murojaah', [
@@ -72,8 +75,11 @@ class ManageMurojaahController extends Controller
 
         if($request->status_hafalan === "Lancar") {
             if( $request->halaman === '20' || $request->jumlah_hafalan === '4/4') {
-                $juz = Juz::where('santri_id', $id)->first()->juz_ke;
-                $hafalan_juz = Juz::where('santri_id', $id);
+                $data = Juz::where('santri_id', $id)->first();
+                $id_juz = $data->id;
+                $juz = $data->juz_ke;
+                
+                $hafalan_juz = Juz::find($id_juz);
                 $hafalan_juz->juz_ke = $juz + 1;
                 $hafalan_juz->updated_at = date('Y-m-d H:i:s'); 
                 $hafalan_juz->save();

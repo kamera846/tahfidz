@@ -20,6 +20,7 @@
 
 <body>
   <!-- Sidenav -->
+  <?php echo $__env->make('component.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   <!-- Main content -->
   <div class="main-content" id="panel">
     <!-- Topnav -->

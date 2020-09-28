@@ -20,6 +20,7 @@
 
 <body>
   <!-- Sidenav -->
+  @include('component.sidebar')
   <!-- Main content -->
   <div class="main-content" id="panel">
     <!-- Topnav -->
