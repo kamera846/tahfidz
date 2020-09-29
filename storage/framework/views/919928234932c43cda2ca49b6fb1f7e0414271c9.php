@@ -50,7 +50,7 @@
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
-            <!-- <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link" href="examples/icons.html">
                 <i class="ni ni-planet text-orange"></i>
                 <span class="nav-link-text">Icons</span>
@@ -79,7 +79,7 @@
                 <i class="ni ni-key-25 text-info"></i>
                 <span class="nav-link-text">Login</span>
               </a>
-            </li> -->
+            </li>
             <?php if($user->level == 'admin'): ?>
             <li class="nav-item">
               <a class="nav-link" href="/register/user">
@@ -88,18 +88,18 @@
               </a>
             </li>
             <?php endif; ?>
-            <!-- <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link" href="examples/register.html">
                 <i class="ni ni-circle-08 text-pink"></i>
                 <span class="nav-link-text">Register</span>
               </a>
-            </li> -->
-            <!-- <li class="nav-item">
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="examples/upgrade.html">
                 <i class="ni ni-send text-dark"></i>
                 <span class="nav-link-text">Upgrade</span>
               </a>
-            </li> -->
+            </li>
           </ul>
           <!-- Divider -->
           <hr class="my-3">
@@ -346,7 +346,7 @@
                     <img alt="Image placeholder" src="<?php echo e(asset('argon/assets/img/theme/team-4.jpg')); ?>">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
-                    <span class="mb-0 text-sm  font-weight-bold"><?php echo e($user->name); ?></span>
+                    <span class="mb-0 text-sm  font-weight-bold"><?php echo e($user->email); ?></span>
                   </div>
                 </div>
               </a>

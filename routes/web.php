@@ -15,6 +15,7 @@ Route::group(['middleware' => 'auth'], function () {
     // User
     Route::get('/', 'HomeController@index');
     Route::get('/dashboard/user', 'Auth\UserController@index');
+    Route::get('/dashboard/user/data-santri', 'Auth\UserController@data_santri');
     
     // Admin
     Route::get('register/user', 'Auth\RegisterUserController@index');
