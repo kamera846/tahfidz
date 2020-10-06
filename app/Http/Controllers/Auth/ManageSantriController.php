@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Santri;
 use App\Wali;
+use App\Juz;
+use App\Murojaah;
 
 class ManageSantriController extends Controller
 {
@@ -84,6 +86,22 @@ class ManageSantriController extends Controller
         $santri->jk = $request->jk;
         $santri->created_at = date('Y-m-d H:i:s');
         $santri->save();
+        
+        $santri_id = $santri->id;
+        $juz = new Juz();
+        $juz->santri_id = $santri_id;
+        $juz->juz_ke = 1;
+        $juz->created_at = date('Y-m-d H:i:s');
+        $juz->save();
+
+        $murojaah = new Murojaah();
+        $murojaah->santri_id = $santri_id;
+        $murojaah->halaman = 0;
+        $murojaah->jumlah_hafalan = 0;
+        $murojaah->jenis = 'wajib';
+        $murojaah->status_hafalan = 0; 
+        $murojaah->created_at = date('Y-m-d H:i:s');
+        $murojaah->save();
 
     	return redirect('/manage/santri');
     }

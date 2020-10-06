@@ -1,5 +1,28 @@
 	  <?php $__env->startSection('content'); ?>
-		<div class="col col-xl-6">
+
+    <div class="header bg-gradient-primary pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                  <li class="breadcrumb-item"><a href="/manage/wali">Manage Wali Santri</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Create</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid mt--7">
+      <div class="row justify-content-md-center">
+        <div class="col col-xl-6">
           <div class="card p-3">
             <div class="card-header border-0">
               <div class="row align-items-center">
@@ -71,7 +94,11 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
                             </div>
-                            <input placeholder="Jenis Kelamin" id="jk" type="text" class="form-control" name="jk" value="<?php echo e(old('jk')); ?>" required>
+                            <select id="jk" class="form-control" name="jk" value="<?php echo e(old('jk')); ?>" required>
+                              <option value="">Jenis Kelamin</option>
+                              <option value="Laki-laki">Laki-laki</option>
+                              <option value="Perempuan">Perempuan</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -103,5 +130,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <?php echo $__env->make('component.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    </div>
+		    
       <?php $__env->stopSection(); ?>
 <?php echo $__env->make('admin.dashboard', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

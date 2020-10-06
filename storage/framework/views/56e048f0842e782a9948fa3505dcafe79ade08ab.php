@@ -55,7 +55,7 @@
                     <td><?php echo e($d->user->email); ?></td>
                     <td><?php echo e($d->nama); ?></td>
                     <td>
-                      <a href="/manage/wali/edit/<?php echo e($d->user->id); ?>" class="btn btn-primary btn-sm">Update</a>
+                      <a href="/manage/wali/edit/<?php echo e($d->id); ?>" class="btn btn-primary btn-sm">Update</a>
                       <a href="/manage/wali/delete/<?php echo e($d->user->id); ?>" class="btn btn-danger btn-sm">Hapus</a>
                     </td>
                   </tr>

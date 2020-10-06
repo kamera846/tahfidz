@@ -15,7 +15,7 @@ class ManageWali extends Controller
     {
         $user = Auth::user();
         $level = 'user';
-        $data = Wali::get();
+        $data = Wali::all();
         // $alamat = User::find(1)->wali('alamat');
         // var_dump($alamat);
         // die();
@@ -45,7 +45,6 @@ class ManageWali extends Controller
         ]);
 
         $user = new User();
-        $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password_confirmation);
         $user->created_at = date('Y-m-d H:i:s');
@@ -84,12 +83,10 @@ class ManageWali extends Controller
     public function edit($id)
     {
         $user = Auth::user();
-        $data1 = User::find($id);
-        $data2 = Wali::where('user_id', $id);
+        $data = Wali::find($id);
 
         return view('admin.manage_wali.form_update', [
-            'data1'=> $data1,
-            'data2' => $data2,
+            'data'=> $data,
             'user' => $user
         ]);
     }
@@ -98,25 +95,26 @@ class ManageWali extends Controller
     {
     	$this->validate($request, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:user',
-            'password' => 'required|string|min:8|confirmed',
             'no_telp' => 'required|max:13',
             'alamat' => 'required|string|max:255',
+            'jk' => 'required'
         ]);
 
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password_confirmation);
-        $user->updated_at = date('Y-m-d H:i:s');
-        $user->level = 'user';
-        $user->save();
+        // $user = User::find($id);
+        // $user->name = $request->name;
+        // $user->email = $request->email;
+        // $user->password = bcrypt($request->password_confirmation);
+        // $user->updated_at = date('Y-m-d H:i:s');
+        // $user->level = 'user';
+        // $user->save();
 
-        $wali = Wali::where('user_id', $id);
+        // $id_wali = Wali::where('user_id', $id)->first()->id;
+        $wali = Wali::find($id);
         $wali->nama = $request->name;
         $wali->no_telp = $request->no_telp;
         $wali->alamat = $request->alamat;
         $wali->jk = $request->jk;
+        $wali->updated_at = date('Y-m-d H:i:s');
         $wali->save();
 
         return redirect('/manage/wali');

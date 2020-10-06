@@ -16,9 +16,9 @@ class ManageMurojaahController extends Controller
     {
         $user = Auth::user();
         $data_santri = Santri::all();
-        $jenis = 'tambahan';
-        $data = Murojaah::orderBy('created_at', $jenis)->first();
-        // var_dump($data->created_at);
+        $jenis = 'wajib';
+        $data = Murojaah::orderBy('created_at', 'desc')->where('jenis', $jenis)->first();
+        // dd($data);
         // die();
 
         return view('admin.manage_murojaah.table_murojaah', [

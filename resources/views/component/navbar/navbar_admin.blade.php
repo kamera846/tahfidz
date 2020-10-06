@@ -199,7 +199,7 @@
                     <img alt="Image placeholder" src="{{ asset('argon/assets/img/brand/user_logo.png') }}">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
-                    <span class="mb-0 text-sm  font-weight-bold">{{$user->username}}</span>
+                    <span class="mb-0 text-sm  font-weight-bold">Admin Tahfidz</span>
                   </div>
                 </div>
               </a>

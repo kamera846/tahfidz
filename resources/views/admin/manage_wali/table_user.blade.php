@@ -56,7 +56,7 @@
                     <td>{{ $d->user->email }}</td>
                     <td>{{ $d->nama }}</td>
                     <td>
-                      <a href="/manage/wali/edit/{{ $d->user->id }}" class="btn btn-primary btn-sm">Update</a>
+                      <a href="/manage/wali/edit/{{ $d->id }}" class="btn btn-primary btn-sm">Update</a>
                       <a href="/manage/wali/delete/{{ $d->user->id }}" class="btn btn-danger btn-sm">Hapus</a>
                     </td>
                   </tr>

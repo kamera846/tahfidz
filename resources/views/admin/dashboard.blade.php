@@ -24,7 +24,7 @@
   <!-- Main content -->
   <div class="main-content" id="panel">
     <!-- Topnav -->
-    @include('component.navbar_auth')
+    @include('component.navbar.navbar_admin')
     <!-- Page content -->
     @yield('content')
   </div>
