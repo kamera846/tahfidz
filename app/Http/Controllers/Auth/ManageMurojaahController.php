@@ -15,16 +15,12 @@ class ManageMurojaahController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $data_santri = Santri::all();
-        $jenis = 'wajib';
-        $data = Murojaah::orderBy('created_at', 'desc')->where('jenis', $jenis)->first();
+        $data_santri = Santri::orderBy('nama')->get();
         // dd($data);
         // die();
-
         return view('admin.manage_murojaah.table_murojaah', [
             'user' => $user,
             'data_santri' => $data_santri,
-            'data' => $data
         ]);
     }
 
@@ -37,12 +33,12 @@ class ManageMurojaahController extends Controller
         $nama = $request->cari;
 
         $user = Auth::user();
-        $santri = Santri::where('nama', 'like', "%".$nama."%")->paginate(5);
-
-        return view('admin.manage_santri.table_santri', [
+        $data_santri = Santri::where('nama', 'like', "%".$nama."%")->paginate(5);
+        // dd($data);
+        // die();
+        return view('admin.manage_murojaah.table_murojaah', [
             'user' => $user,
-            'santri' => $santri,
-            'nama' => $nama 
+            'data_santri' => $data_santri,
         ]);
     }
 

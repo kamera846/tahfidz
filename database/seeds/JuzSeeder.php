@@ -14,14 +14,17 @@ class JuzSeeder extends Seeder
     {
         // data faker indonesia
         $faker = Faker::create('id_ID');
-        static $order = 47;
+        static $id = 1;
+        static $santri_id = 1;
 
         // membuat data dummy
-        for($x = 1; $x <= 20; $x++) {
+        for($x = 1; $x <= 5; $x++) {
             
             // inser data dummy santri dengan faker
             DB::table('juz')->insert([
-                'santri_id' => $order++,
+                'id' => $id++,
+                'santri_id' => $santri_id++,
+                'juz_ke' => '1',
                 'created_at' => $faker->dateTimeThisMonth()->format('Y-m-d H:i:s')
             ]);
         };

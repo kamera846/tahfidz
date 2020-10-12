@@ -40,89 +40,43 @@
               <table class="table align-items-center table-flush">
                 <thead class="thead-light text-center">
                   <tr>
-                    <th scope="col" rowspan="2">Nama Santri</th>
-                    <th scope="col" colspan="2">Minggu 1</th>
-                    <th scope="col" colspan="2">Minggu 2</th>
-                    <th scope="col" colspan="2">Minggu 3</th>
-                    <th scope="col" colspan="2">Minggu 4</th>
-                  </tr>
-                  <tr>
-                    <th scope="col">T</th>
-                    <th scope="col">M</th>
-                    <th scope="col">T</th>
-                    <th scope="col">M</th>
-                    <th scope="col">T</th>
-                    <th scope="col">M</th>
-                    <th scope="col">T</th>
-                    <th scope="col">M</th>
+                    <th scope="col" colspan="2">Nama Santri</th>
+                    <th scope="col">Minggu 1</th>
+                    <th scope="col">Minggu 2</th>
+                    <th scope="col">Minggu 3</th>
+                    <th scope="col">Minggu 4</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($data_santri as $s)
+                  @foreach($data_santri as $d)
                   <tr>
-                    <th scope="row">
-                      {{ $s->nama }}
+                    <th scope="row" rowspan="2">
+                      {{ $d->nama }}
                     </th>
-                    <td class="text-center">{{ $s->juz->juz_ke }}/{{ $s->murojaah->where('jenis', 'tambahan')->last()->halaman }}</td>
-                    <td class="text-center">{{ $s->juz->juz_ke }}/{{ $s->murojaah->where('jenis', 'wajib')->last()->halaman }}</td>
+                    <th class="text-center bg-secondary" scope="col">T</th>
+                    @foreach($d->murojaah->where('jenis', 'tambahan') as $t)
+                      @if( $t->status_hafalan === 0 )
+                      <td class="text-center bg-danger" scope="col">{{ $d->juz->juz_ke }}/{{ $t->halaman }}</td>
+                      @else
+                      <td class="text-center" scope="col">{{ $d->juz->juz_ke }}/{{ $t->halaman }}</td>
+                      @endif
+                    @endforeach
+                  </tr>
+                  <tr>
+                    <th class="text-center bg-secondary" scope="col">M</th>
+                    @foreach($d->murojaah->where('jenis', 'wajib') as $w)
+                      @if( $t->status_hafalan === 0 )
+                      <td class="text-center bg-danger" scope="col">{{ $d->juz->juz_ke }}/{{ $w->halaman }}</td>
+                      @else
+                      <td class="text-center" scope="col">{{ $d->juz->juz_ke }}/{{ $w->halaman }}</td>
+                      @endif
+                    @endforeach
                   </tr>
                   @endforeach
                 </tbody>
               </table>
             </div>
           </div>
-
-          <!-- <div class="card">
-            <div class="card-header border-0">
-              <div class="row align-items-center">
-                <div class="col">
-                  <div class="row">
-                    <a href="/manage/santri"><h2 class="mb-0">Murojaah Santri</h2></a>
-                    </a>
-                  </div>
-                </div>
-                
-                <form class="form-inline" action="/manage/murojaah/search" method="GET">
-                  <input class="form-control form-control-sm mr-sm-2" type="text" name="cari" placeholder="Search" value="{{ old('cari') }}">
-                  <button class="btn btn-primary btn-sm mr-3" type="submit">Search</button>
-                </form>
-              </div>
-            </div>
-            <div class="table-responsive">
-              <table class="table align-items-center table-flush">
-                <thead class="thead-light text-center">
-                  <tr>
-                    <th scope="col" rowspan="3">Nama Santri</th>
-                    <th scope="col" colspan="2">Murojaah</th>
-                  </tr>
-                  <tr>
-                    <th scope="col">Tambahan</th>
-                    <th scope="col">Wajib</th>
-                  </tr>
-                  <tr>
-                    <th scope="col">(Juz/hal/ayat)</th>
-                    <th scope="col">(Juz/hal/ayat)</th>
-                  </tr>
-                </thead>
-                @foreach($data_santri as $s)
-                <tbody>
-                  <tr>
-                    <td>
-                      <a href="/manage/murojaah/detail/{{ $s->id }}">{{ $s->nama }}</a>
-                    </td>
-                    <td class="text-center">13/15/45 <span class="badge badge-success">Lancar</span></td>
-                    <td class="text-center">12/20/183 <span class="badge badge-warning">Kurang Lancar</span></td>
-                    <td>
-                      <a href="/santri/hafalan/baru/{{ $s->id }}" class="btn btn-primary btn-sm">Murojaah</a>
-                      <a href="/manage/santri/delete/{{ $s->id }}"><i class="fas fa-trash text-danger mr-3"></i></a>
-                      <a href="/manage/santri/edit/{{ $s->id }}"><i class="ni ni-curved-next text-primary"></i></a>
-                    </td>
-                  </tr>
-                </tbody>
-                @endforeach
-              </table>
-            </div>
-          </div> -->
         </div>
       </div>
 

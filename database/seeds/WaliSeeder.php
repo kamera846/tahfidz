@@ -15,14 +15,16 @@ class WaliSeeder extends Seeder
     {
         // data faker indonesia
         $faker = Faker::create('id_ID');
-        static $order = 18;
+        static $user_id = 4;
+        static $id = 3;
 
         // membuat data dummy
-        for($x = 1; $x <= 20; $x++) {
+        for($x = 1; $x <= 18; $x++) {
             
             // inser data dummy santri dengan faker
             DB::table('wali')->insert([
-                'user_id' => $order++,
+                'id' => $id++,
+                'user_id' => $user_id++,
                 'nama' => $faker->name,
                 'no_telp' => $faker->phoneNumber,
                 'alamat' => $faker->address,

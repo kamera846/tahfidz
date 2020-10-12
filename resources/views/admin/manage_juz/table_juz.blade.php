@@ -66,28 +66,28 @@
                     </td> -->
                     <td class="text-center">
                       <div class="d-flex align-items-center row">
-                        <span class="col-md-2">{{ $s->murojaah->where('jenis', 'wajib')->first()->halaman }}/20</span>
+                        <span class="col-md-2">{{ $s->murojaah->where('jenis', 'wajib')->last()->halaman }}/20</span>
                         <div class="col-md-9">
                           <div class="progress">
-                            @if( $s->murojaah->where('jenis', 'wajib')->first()->halaman <= 2 )
+                            @if( $s->murojaah->where('jenis', 'wajib')->last()->halaman <= 2 )
                             <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%; background-color: #ff0000;"></div>
-                            @elseif( $s->murojaah->where('jenis', 'wajib')->first()->halaman <= 4 )
+                            @elseif( $s->murojaah->where('jenis', 'wajib')->last()->halaman <= 4 )
                             <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%; background-color: #ff0000;"></div>
-                            @elseif( $s->murojaah->where('jenis', 'wajib')->first()->halaman <= 6 )
+                            @elseif( $s->murojaah->where('jenis', 'wajib')->last()->halaman <= 6 )
                             <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%; background-color: #ff0000;"></div>
-                            @elseif( $s->murojaah->where('jenis', 'wajib')->first()->halaman <= 8 )
+                            @elseif( $s->murojaah->where('jenis', 'wajib')->last()->halaman <= 8 )
                             <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%; background-color: #ff8000;"></div>
-                            @elseif( $s->murojaah->where('jenis', 'wajib')->first()->halaman <= 10 )
+                            @elseif( $s->murojaah->where('jenis', 'wajib')->last()->halaman <= 10 )
                             <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%; background-color: #ff8000;"></div>
-                            @elseif( $s->murojaah->where('jenis', 'wajib')->first()->halaman <= 12 )
+                            @elseif( $s->murojaah->where('jenis', 'wajib')->last()->halaman <= 12 )
                             <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%; background-color: #ff8000;"></div>
-                            @elseif( $s->murojaah->where('jenis', 'wajib')->first()->halaman <= 14 )
+                            @elseif( $s->murojaah->where('jenis', 'wajib')->last()->halaman <= 14 )
                             <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%; background-color: #ffff00;"></div>
-                            @elseif( $s->murojaah->where('jenis', 'wajib')->first()->halaman <= 16 )
+                            @elseif( $s->murojaah->where('jenis', 'wajib')->last()->halaman <= 16 )
                             <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%; background-color: #ffff00;"></div>
-                            @elseif( $s->murojaah->where('jenis', 'wajib')->first()->halaman <= 18 )
+                            @elseif( $s->murojaah->where('jenis', 'wajib')->last()->halaman <= 18 )
                             <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 75%; background-color: #ffff00;"></div>
-                            @elseif( $s->murojaah->where('jenis', 'wajib')->first()->halaman <= 20 )
+                            @elseif( $s->murojaah->where('jenis', 'wajib')->last()->halaman <= 20 )
                             <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%; background-color: #00ff80;"></div>
                             @endif
                           </div>

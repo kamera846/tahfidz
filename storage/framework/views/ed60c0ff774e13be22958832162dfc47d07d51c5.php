@@ -40,90 +40,44 @@
               <table class="table align-items-center table-flush">
                 <thead class="thead-light text-center">
                   <tr>
-                    <th scope="col" rowspan="2">Nama Santri</th>
-                    <th scope="col" colspan="2">Minggu 1</th>
-                    <th scope="col" colspan="2">Minggu 2</th>
-                    <th scope="col" colspan="2">Minggu 3</th>
-                    <th scope="col" colspan="2">Minggu 4</th>
-                  </tr>
-                  <tr>
-                    <th scope="col">T</th>
-                    <th scope="col">M</th>
-                    <th scope="col">T</th>
-                    <th scope="col">M</th>
-                    <th scope="col">T</th>
-                    <th scope="col">M</th>
-                    <th scope="col">T</th>
-                    <th scope="col">M</th>
+                    <th scope="col" colspan="2">Nama Santri</th>
+                    <th scope="col">Minggu 1</th>
+                    <th scope="col">Minggu 2</th>
+                    <th scope="col">Minggu 3</th>
+                    <th scope="col">Minggu 4</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php $__currentLoopData = $data_santri; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <?php $__currentLoopData = $data_santri; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $d): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <tr>
-                    <th scope="row">
-                      <?php echo e($s->nama); ?>
+                    <th scope="row" rowspan="2">
+                      <?php echo e($d->nama); ?>
 
                     </th>
-                    <td class="text-center"><?php echo e($s->juz->juz_ke); ?>/<?php echo e($s->murojaah->where('jenis', 'tambahan')->last()->halaman); ?></td>
-                    <td class="text-center"><?php echo e($s->juz->juz_ke); ?>/<?php echo e($s->murojaah->where('jenis', 'wajib')->last()->halaman); ?></td>
+                    <th class="text-center bg-secondary" scope="col">T</th>
+                    <?php $__currentLoopData = $d->murojaah->where('jenis', 'tambahan'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $t): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <?php if( $t->status_hafalan === 0 ): ?>
+                      <td class="text-center bg-danger" scope="col"><?php echo e($d->juz->juz_ke); ?>/<?php echo e($t->halaman); ?></td>
+                      <?php else: ?>
+                      <td class="text-center" scope="col"><?php echo e($d->juz->juz_ke); ?>/<?php echo e($t->halaman); ?></td>
+                      <?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  </tr>
+                  <tr>
+                    <th class="text-center bg-secondary" scope="col">M</th>
+                    <?php $__currentLoopData = $d->murojaah->where('jenis', 'wajib'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $w): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <?php if( $t->status_hafalan === 0 ): ?>
+                      <td class="text-center bg-danger" scope="col"><?php echo e($d->juz->juz_ke); ?>/<?php echo e($w->halaman); ?></td>
+                      <?php else: ?>
+                      <td class="text-center" scope="col"><?php echo e($d->juz->juz_ke); ?>/<?php echo e($w->halaman); ?></td>
+                      <?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </tr>
                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
               </table>
             </div>
           </div>
-
-          <!-- <div class="card">
-            <div class="card-header border-0">
-              <div class="row align-items-center">
-                <div class="col">
-                  <div class="row">
-                    <a href="/manage/santri"><h2 class="mb-0">Murojaah Santri</h2></a>
-                    </a>
-                  </div>
-                </div>
-                
-                <form class="form-inline" action="/manage/murojaah/search" method="GET">
-                  <input class="form-control form-control-sm mr-sm-2" type="text" name="cari" placeholder="Search" value="<?php echo e(old('cari')); ?>">
-                  <button class="btn btn-primary btn-sm mr-3" type="submit">Search</button>
-                </form>
-              </div>
-            </div>
-            <div class="table-responsive">
-              <table class="table align-items-center table-flush">
-                <thead class="thead-light text-center">
-                  <tr>
-                    <th scope="col" rowspan="3">Nama Santri</th>
-                    <th scope="col" colspan="2">Murojaah</th>
-                  </tr>
-                  <tr>
-                    <th scope="col">Tambahan</th>
-                    <th scope="col">Wajib</th>
-                  </tr>
-                  <tr>
-                    <th scope="col">(Juz/hal/ayat)</th>
-                    <th scope="col">(Juz/hal/ayat)</th>
-                  </tr>
-                </thead>
-                <?php $__currentLoopData = $data_santri; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $s): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <tbody>
-                  <tr>
-                    <td>
-                      <a href="/manage/murojaah/detail/<?php echo e($s->id); ?>"><?php echo e($s->nama); ?></a>
-                    </td>
-                    <td class="text-center">13/15/45 <span class="badge badge-success">Lancar</span></td>
-                    <td class="text-center">12/20/183 <span class="badge badge-warning">Kurang Lancar</span></td>
-                    <td>
-                      <a href="/santri/hafalan/baru/<?php echo e($s->id); ?>" class="btn btn-primary btn-sm">Murojaah</a>
-                      <a href="/manage/santri/delete/<?php echo e($s->id); ?>"><i class="fas fa-trash text-danger mr-3"></i></a>
-                      <a href="/manage/santri/edit/<?php echo e($s->id); ?>"><i class="ni ni-curved-next text-primary"></i></a>
-                    </td>
-                  </tr>
-                </tbody>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-              </table>
-            </div>
-          </div> -->
         </div>
       </div>
 

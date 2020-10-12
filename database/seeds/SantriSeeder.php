@@ -14,14 +14,16 @@ class SantriSeeder extends Seeder
     {
         // data faker indonesia
         $faker = Faker::create('id_ID');
-        static $order = 4;
+        static $wali_id = 1;
+        static $id = 1;
 
         // membuat data dummy
-        for($x = 1; $x <= 20; $x++) {
+        for($x = 1; $x <= 5; $x++) {
             
             // inser data dummy santri dengan faker
             DB::table('santri')->insert([
-                'wali_id' => $order++,
+                'id' => $id++,
+                'wali_id' => $wali_id++,
                 'nama' => $faker->name,
                 'kelas' => $faker->numberBetween(1,6),
                 'jk' => $faker->randomElement($array = array('Laki-laki', 'Perempuan')),
